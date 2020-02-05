@@ -1,51 +1,57 @@
 <template>
-          <div class="col-lg-4 sidebar-widgets">
+  <div class="col-lg-4 sidebar-widgets" style="font-family: 'Jua', sans-serif;">
+    <div v-for="dust of dustlist" v-bind:key="dust.id">
               <div class="widget-wrap">
-                <div class="single-sidebar-widget newsletter-widget">
-                  <h4 class="single-sidebar-widget__title">Newsletter</h4>
-                  <div class="form-group mt-30">
-                    <div class="col-autos">
-                      <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Enter email" onfocus="this.placeholder = ''"
-                        onblur="this.placeholder = 'Enter email'">
-                    </div>
-                  </div>
-                  <button class="bbtns d-block mt-20 w-100">Subcribe</button>
-                </div>
 
                 <div class="single-sidebar-widget post-category-widget">
-                  <h4 class="single-sidebar-widget__title">Catgory</h4>
-                  <ul class="cat-list mt-20">
-                    <li>
-                      <a href="#" class="d-flex justify-content-between">
-                        <p>Technology</p>
-                        <p>(03)</p>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" class="d-flex justify-content-between">
-                        <p>Software</p>
-                        <p>(09)</p>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" class="d-flex justify-content-between">
-                        <p>Lifestyle</p>
-                        <p>(12)</p>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" class="d-flex justify-content-between">
-                        <p>Shopping</p>
-                        <p>(02)</p>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" class="d-flex justify-content-between">
-                        <p>Food</p>
-                        <p>(10)</p>
-                      </a>
-                    </li>
-                  </ul>
+                  <h4 class="single-sidebar-widget__title" style="letter-spacing:3px">미세먼지</h4>
+                  <div class="location_time">
+                    <h5>현재위치</h5>
+                    <span>
+                      <h5> ( {{dust.stationname}} ) </h5>
+                    </span>
+                    <span>
+                      {{dust.dataTime}}
+                    </span>
+                  </div>
+                  <br>
+                  <div class="finedust_div" style="height:120px;">
+
+                    <div class="finedust_left">
+                      <span style="font-size:20px;">미세먼지</span>
+                      <div v-if="dust.pm10Value<=30">
+                        <img class="finedust_img" src="img/finedust1.png">
+                      </div>
+                      <div v-else-if="30<dust.pm10Value<=80">
+                        <img class="finedust_img" src="img/finedust2.png">
+                      </div>
+                      <div v-else-if="80<dust.pm10Value<=150">
+                        <img class="finedust_img" src="img/finedust3.png">
+                      </div>
+                      <div v-else-if="150<dust.pm10Value">
+                        <img class="finedust_img" src="img/finedust4.png">
+                      </div>
+                      <h2>{{dust.pm10Value}}</h2>
+                    </div>
+
+                    <div class="finedust_right">
+                      <span style="font-size:20px">초미세먼지</span>
+                      <div v-if="dust.pm25Value<=15">
+                        <img class="finedust_img" src="img/finedust1.png">
+                      </div>
+                      <div v-else-if="15<dust.pm25Value<=35">
+                        <img class="finedust_img" src="img/finedust2.png">
+                      </div>
+                      <div v-else-if="35<dust.pm25Value<=75">
+                        <img class="finedust_img" src="img/finedust3.png">
+                      </div>
+                      <div v-else-if="75<dust.pm25Value">
+                        <img class="finedust_img" src="img/finedust4.png">
+                      </div>
+                      <h2>{{dust.pm25Value}}</h2>
+                    </div>
+
+                  </div>
                 </div>
 
                 <div class="single-sidebar-widget popular-post-widget">
@@ -97,46 +103,59 @@
                     </div>
                   </div>
                 </div>
-
-                  <div class="single-sidebar-widget tag_cloud_widget">
-                    <h4 class="single-sidebar-widget__title">Popular Post</h4>
-                    <ul class="list">
-                      <li>
-                          <a href="#">project</a>
-                      </li>
-                      <li>
-                          <a href="#">love</a>
-                      </li>
-                      <li>
-                          <a href="#">technology</a>
-                      </li>
-                      <li>
-                          <a href="#">travel</a>
-                      </li>
-                      <li>
-                          <a href="#">software</a>
-                      </li>
-                      <li>
-                          <a href="#">life style</a>
-                      </li>
-                      <li>
-                          <a href="#">design</a>
-                      </li>
-                      <li>
-                          <a href="#">illustration</a>
-                      </li>
-                    </ul>
-                  </div>
                 </div>
-              </div>
+    </div>
+  </div>
 </template>
 
 <script>
+import axios from 'axios';
 export default {
-  name: 'Finedust',
-  props: {
-    msg: String
-  }
+  data() {
+    return {
+      dustlist: []
+    }
+  },
+  created() {
+    this.all();
+  },
+  methods: {
+    all: function () {
+      axios.get('http://127.0.0.1:8000/api/dustinfo/')
+        .then( response => {
+                    this.dustlist = response.data
+      });
+    }
+  },
 }
 </script>
 
+<style scoped>
+.finedust_left{
+  width: 50%;
+  float: left;
+  text-align: center;
+}
+.finedust_right{
+  width: 50%;
+  float: right;
+  text-align: center;
+}
+.finedust_img{
+  width: 40%;
+  margin-top: 10px;
+}
+.single-sidebar-widget__title{
+  font-size: 180%;
+}
+.location_time{
+  text-align: center;
+}
+.single-sidebar-widget{
+  background-color: white;
+  border: 1px solid #e4e4e4;
+}
+template {
+  font-family: "Jua", sans-serif;
+}
+</style>

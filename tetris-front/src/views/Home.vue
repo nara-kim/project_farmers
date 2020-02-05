@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <h1>에이스</h1>
     <Index_News/>
      <section class="blog-post-area section-margin mt-4">
       <div class ="container">
