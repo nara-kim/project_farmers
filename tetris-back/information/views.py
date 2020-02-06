@@ -1,11 +1,15 @@
 from django.shortcuts import render
-from .models import NewsInfo, WeatherInfo, DustInfo, MapInfo
-from .serializers import NewsSerializer, WeatherSerializer, DustSerializer, MapSerializer
+from .models import NewsInfo, WeatherInfo, DustInfo, PriceInfo
+from .serializers import NewsSerializer, WeatherSerializer, DustSerializer, PriceSerializer
 from rest_framework import generics
 from rest_framework.decorators import api_view, permission_classes
 from bs4 import BeautifulSoup
 import requests
+from urllib.request import urlopen, re
+import xml.etree.ElementTree as elemTree
+import json
 from django.http import JsonResponse, HttpResponse
+import datetime
 
 # 이미지 수정
 class NewsList(generics.ListCreateAPIView):
@@ -109,37 +113,59 @@ class DustList(generics.ListAPIView):
     # DustInfo.objects.create(stationname=stationname, dataTime=dataTime, pm25Value=pm25Value, pm25Value24=pm25Value24, pm10Value=pm10Value, pm10Value24=pm10Value24,
     #                         o3Value=o3Value, no2Value=no2Value, so2Value=so2Value, khaiValue=khaiValue)
 
-    
     queryset = DustInfo.objects.all()
     serializer_class = DustSerializer
     
 
+class PriceList(generics.ListAPIView):
+    # month = datetime.datetime.now().month
+    # # day = datetime.datetime.now().day
 
-# class MapList(generics.ListAPIView):    
-#     # MapInfo.objects.create(location="들어간다 개색기야!!!")
-#     queryset = MapInfo.objects.all()
-#     serializer_class = MapSerializer
+    # url = 'http://www.kamis.or.kr/service/price/xml.do?action=dailyPriceByCategoryList&p_product_cls_code=01&p_country_code=1101&p_regday=2020-{}-5&p_convert_kg_yn=N&p_item_category_code=500&p_cert_key=dcdfccb3-6d9d-4472-9bdf-53f25c139663&p_cert_id=222&p_returntype=xml'.format(month)
+    # xml_data = urlopen(url).read().decode('utf8')
+    # data = elemTree.fromstring(xml_data)
+    # item = data.find('./data')
+    
+
+    # finallist = []
+    # for i in item.findall("./item"):
+    #     temp = []
+    #     temp.append(i.find("./kind_name").text)
+    #     temp.append(i.find("./rank").text)
+    #     temp.append(i.find("./unit").text)
+    #     temp.append(i.find("./dpr1").text)
+    #     finallist.append("/")
+    #     finallist.append(temp)
+    # PriceInfo.objects.create(test=finallist)
+
+    queryset = PriceInfo.objects.all()
+    serializer_class = PriceSerializer
+
+
+
+
 
 
 
 @api_view(['GET'])
 def MapList(request):
+    # print('1111111111111111')
     print(111111111111111)
-    aaa = request.GET.get('aaa')
-    bbb = request.GET.get('bbb')
+    # aaa = request.GET.get('aaa')
+    # bbb = request.GET.get('bbb')
 
-    response = requests.get('https://api2.sktelecom.com/weather/current/hourly?appKey=l7xx93f82b03bbea415abb503b02136a2f34&version=1&lat={}&lon={}'.format(aaa, bbb))
-    response_body = response.json()
+    # response = requests.get('https://api2.sktelecom.com/weather/current/hourly?appKey=l7xx93f82b03bbea415abb503b02136a2f34&version=1&lat={}&lon={}'.format(aaa, bbb))
+    # response_body = response.json()
 
-    loaction = response_body['weather']['hourly'][0]['grid']['city'] + response_body['weather']['hourly'][0]['grid']['county'] + response_body['weather']['hourly'][0]['grid']['village']
-    sky = response_body['weather']['hourly'][0]['sky']['name']
+    # loaction = response_body['weather']['hourly'][0]['grid']['city'] + response_body['weather']['hourly'][0]['grid']['county'] + response_body['weather']['hourly'][0]['grid']['village']
+    # sky = response_body['weather']['hourly'][0]['sky']['name']
 
-    tc = response_body['weather']['hourly'][0]['temperature']['tc']
-    tmin = response_body['weather']['hourly'][0]['temperature']['tmin']
-    tmx = response_body['weather']['hourly'][0]['temperature']['tmax']  
-    timerelease = response_body['weather']['hourly'][0]['timeRelease']
+    # tc = response_body['weather']['hourly'][0]['temperature']['tc']
+    # tmin = response_body['weather']['hourly'][0]['temperature']['tmin']
+    # tmx = response_body['weather']['hourly'][0]['temperature']['tmax']  
+    # timerelease = response_body['weather']['hourly'][0]['timeRelease']
 
-    weatherdata = {'loaction': loaction, 'sky': sky, 'tc': tc, 'tmin': tmin, 'tmx': tmx, 'timerelease':timerelease}
+    # weatherdata = {'loaction': loaction, 'sky': sky, 'tc': tc, 'tmin': tmin, 'tmx': tmx, 'timerelease':timerelease}
     
     # WeatherInfo.objects.create(loaction=loaction, sky=sky, tc=tc, tmin=tmin, tmx=tmx, timerelease=timerelease)
-    return JsonResponse(weatherdata)
+    # return JsonResponse(weatherdata)
