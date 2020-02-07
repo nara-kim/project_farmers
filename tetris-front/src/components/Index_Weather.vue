@@ -1,7 +1,9 @@
 <template>
 <!--================ Start Blog Post Area =================-->
 
+
     <div class="col-lg-8">
+
             <!-- 여기부터 -->
     <div class="page-content page-container" id="page-content">
     <div>
@@ -293,23 +295,56 @@ import axios from 'axios';
 export default {
   data() {
     return {
-      weatherlist: []
-    }
-  },
-  created() {
-    this.all();
-  },
-  methods: {
-    all: function () {
-      axios.get('http://127.0.0.1:8000/api/weatherinfo/')
-        .then( response => {
-                    this.weatherlist = response.data
-      });
-    }
-  },
-  
+        // weatherlist: [],
+        weatherlist: []
+
+
+
+
+        }  
+    },
+    methods:{
+        location(){
+            if (navigator.geolocation) {
+                const temp = this
+                navigator.geolocation.getCurrentPosition(function(postion){
+                    const lat = postion.coords.latitude // 위도
+                    const lon = postion.coords.longitude //경도
+                axios.get('http://127.0.0.1:8000/api/weatherinfolive/', {
+                    params: {
+                        Lat: lat,
+                        Lon: lon,
+                    }})
+                    .then(res=>{
+                        temp.weatherlist = res.data
+                    })
+
+                });
+            }   else {
+                console.log("에러")
+            }
+            }
+        },
+        mounted(){
+                navigator.geolocation.getCurrentPosition(function(position){
+                    const lat = position.coords.latitude //위도
+                    const lon = position.coords.longitude // 경도
+                axios.get('http://127.0.0.1:8000/api/weatherinfo/', {
+                    params: {
+                        Lat: lat,
+                        Lon: lon,
+                }})
+                .then(res=>{
+                    this.weatherlist = res.data
+                })
+                
+        }
+                )}
 }
+                   
 </script>
+
+
 
 <style scoped>
 /* 여기 */

@@ -2,8 +2,8 @@
 <div>
   <div id="map" style="width:800px;height:400px;"></div>
   <button @click="me()">지도 중심좌표 부드럽게 이동시키기</button>
-  <div>
       {{weaherlist}}
+  <div>
   <button @click="location()">위치전송</button>
   </div>
 </div>
@@ -25,6 +25,7 @@ export default {
  name:'dmap',
  methods:{
      me(){
+    
         if (navigator.geolocation) {
             // GeoLocation을 이용해서 접속 위치를 얻어옵니다
             var displayMarker = this.displayMarker;

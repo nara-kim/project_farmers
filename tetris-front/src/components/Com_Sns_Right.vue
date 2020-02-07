@@ -3,14 +3,18 @@
     <div class="col-lg-4 sidebar-widgets">
         <div class="widget-wrap">
             <div class="single-sidebar-widget newsletter-widget">
-            <h4 class="single-sidebar-widget__title">Newsletter</h4>
+            <h4 class="single-sidebar-widget__title">누구누구님 환영합니다.</h4>
             <div class="form-group mt-30">
                 <div class="col-autos">
-                <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Enter email" onfocus="this.placeholder = ''"
-                    onblur="this.placeholder = 'Enter email'">
+                <!-- <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Enter email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email'"> -->
                 </div>
             </div>
-            <button class="bbtns d-block mt-20 w-100">Subcribe</button>
+                    
+                <button class="bbtns d-block mt-20 w-100">
+                <router-link to="/signup">
+                    글쓰기
+                    </router-link>
+                    </button>
             </div>
 
 

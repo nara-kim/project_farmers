@@ -11,6 +11,11 @@ class WeatherSerializer(serializers.ModelSerializer):
         model = WeatherInfo
         fields = ('id', 'loaction', 'sky', 'tc', 'tmin', 'tmx', 'timerelease')
 
+# class RainraderSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = RainraderInfo
+#         fields = ('id', 'raderimg')
+
 class DustSerializer(serializers.ModelSerializer):
     class Meta:
         model = DustInfo
@@ -23,6 +28,9 @@ class PriceSerializer(serializers.ModelSerializer):
         fields = ('id', 'test')
         # fields = ('id', 'itemname', 'kindname', 'rank', 'unit', 'day1', 'dpr1' ,'day2' ,'dpr2' ,'day3' 
         #          ,'dpr3' ,'day4' ,'dpr4' ,'day5' ,'dpr5' ,'day6' ,'dpr6' ,'day7' ,'dpr7')
+
+
+
 
 
 # class MapSerializer(serializers.ModelSerializer):

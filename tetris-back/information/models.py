@@ -17,6 +17,10 @@ class WeatherInfo(models.Model):
     tmx = models.TextField()  
     timerelease = models.TextField()  
 
+# class RainraderInfo(models.Model):
+#     raderimg = models.TextField()
+
+
 class DustInfo(models.Model):
     # 순서대로
     # 측정소정보, 측정시간, 초미세먼지, 초미세먼지24시간, 적당한미세먼지, 적당한미세먼지24시간, 오존농도, 이산화질소농도, 아황산가스농도, 통합대기

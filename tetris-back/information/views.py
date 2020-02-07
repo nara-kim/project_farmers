@@ -10,6 +10,15 @@ import xml.etree.ElementTree as elemTree
 import json
 from django.http import JsonResponse, HttpResponse
 import datetime
+import numpy as np
+import imageio
+import os
+from PIL import Image
+
+
+
+day = clock = (datetime.datetime.now()).strftime('%d')
+month = clock = (datetime.datetime.now()).strftime('%m')
 
 # 이미지 수정
 class NewsList(generics.ListCreateAPIView):
@@ -64,28 +73,29 @@ class NewsList(generics.ListCreateAPIView):
 
     #     NewsInfo.objects.create(title=title, discription=discription, created_date=created_date, newslink=link, newsimg=img)
 
+
     queryset = NewsInfo.objects.all()
     serializer_class = NewsSerializer
 
 
 
-class WeatherList(generics.ListAPIView):
+# class WeatherList(generics.ListAPIView):
     
-    # response = requests.get('https://api2.sktelecom.com/weather/current/hourly?appKey=l7xx93f82b03bbea415abb503b02136a2f34&version=1&lat=35.205529&lon=126.811509')
-    # response_body = response.json()
+#     # response = requests.get('https://api2.sktelecom.com/weather/current/hourly?appKey=l7xx93f82b03bbea415abb503b02136a2f34&version=1&lat=35.205529&lon=126.811509')
+#     # response_body = response.json()
 
-    # loaction = response_body['weather']['hourly'][0]['grid']['city'] + response_body['weather']['hourly'][0]['grid']['county'] + response_body['weather']['hourly'][0]['grid']['village']
-    # sky = response_body['weather']['hourly'][0]['sky']['name']
+#     # loaction = response_body['weather']['hourly'][0]['grid']['city'] + response_body['weather']['hourly'][0]['grid']['county'] + response_body['weather']['hourly'][0]['grid']['village']
+#     # sky = response_body['weather']['hourly'][0]['sky']['name']
 
-    # tc = response_body['weather']['hourly'][0]['temperature']['tc']
-    # tmin = response_body['weather']['hourly'][0]['temperature']['tmin']
-    # tmx = response_body['weather']['hourly'][0]['temperature']['tmax']  
-    # timerelease = response_body['weather']['hourly'][0]['timeRelease']
+#     # tc = response_body['weather']['hourly'][0]['temperature']['tc']
+#     # tmin = response_body['weather']['hourly'][0]['temperature']['tmin']
+#     # tmx = response_body['weather']['hourly'][0]['temperature']['tmax']  
+#     # timerelease = response_body['weather']['hourly'][0]['timeRelease']
 
-    # WeatherInfo.objects.create(loaction=loaction, sky=sky, tc=tc, tmin=tmin, tmx=tmx, timerelease=timerelease)
+#     # WeatherInfo.objects.create(loaction=loaction, sky=sky, tc=tc, tmin=tmin, tmx=tmx, timerelease=timerelease)
     
-    queryset = WeatherInfo.objects.all()
-    serializer_class = WeatherSerializer
+#     queryset = WeatherInfo.objects.all()
+#     serializer_class = WeatherSerializer
 
 
 class DustList(generics.ListAPIView):
@@ -118,10 +128,7 @@ class DustList(generics.ListAPIView):
     
 
 class PriceList(generics.ListAPIView):
-    # month = datetime.datetime.now().month
-    # # day = datetime.datetime.now().day
-
-    # url = 'http://www.kamis.or.kr/service/price/xml.do?action=dailyPriceByCategoryList&p_product_cls_code=01&p_country_code=1101&p_regday=2020-{}-5&p_convert_kg_yn=N&p_item_category_code=500&p_cert_key=dcdfccb3-6d9d-4472-9bdf-53f25c139663&p_cert_id=222&p_returntype=xml'.format(month)
+    # url = 'http://www.kamis.or.kr/service/price/xml.do?action=dailyPriceByCategoryList&p_product_cls_code=01&p_country_code=1101&p_regday=2020-{}-{}&p_convert_kg_yn=N&p_item_category_code=500&p_cert_key=dcdfccb3-6d9d-4472-9bdf-53f25c139663&p_cert_id=222&p_returntype=xml'.format(month, day)
     # xml_data = urlopen(url).read().decode('utf8')
     # data = elemTree.fromstring(xml_data)
     # item = data.find('./data')
@@ -141,18 +148,55 @@ class PriceList(generics.ListAPIView):
     queryset = PriceInfo.objects.all()
     serializer_class = PriceSerializer
 
+# 실시간으로 위치기반해서 데이터 가져오기
+@api_view(['GET'])
+def WeatherliveList(request):
+    print("@@@@@@@@@@@@@@")
+    # lat = request.GET.get('Lat')
+    # lon = request.GET.get('Lon')
 
+    # response = requests.get('https://api2.sktelecom.com/weather/current/hourly?appKey=l7xx93f82b03bbea415abb503b02136a2f34&version=1&lat={}&lon={}'.format(lat, lon))
+    # response_body = response.json()
 
+    # loaction = response_body['weather']['hourly'][0]['grid']['city'] + response_body['weather']['hourly'][0]['grid']['county'] + response_body['weather']['hourly'][0]['grid']['village']
+    # sky = response_body['weather']['hourly'][0]['sky']['name']
+
+    # tc = response_body['weather']['hourly'][0]['temperature']['tc']
+    # tmin = response_body['weather']['hourly'][0]['temperature']['tmin']
+    # tmx = response_body['weather']['hourly'][0]['temperature']['tmax']  
+    # timerelease = response_body['weather']['hourly'][0]['timeRelease']
+
+    # weatherdata = {'loaction': loaction, 'sky': sky, 'tc': tc, 'tmin': tmin, 'tmx': tmx, 'timerelease':timerelease}
+    # # WeatherInfo.objects.create(loaction=loaction, sky=sky, tc=tc, tmin=tmin, tmx=tmx, timerelease=timerelease)
+    # return JsonResponse(weatherdata)
+
+class WeatherList(generics.ListAPIView):
+    print("@@@@@@@@@@@@@@@@@@@@@@@@@@")
+    # response = requests.get('https://api2.sktelecom.com/weather/current/hourly?appKey=l7xx93f82b03bbea415abb503b02136a2f34&version=1&lat=35.219839&lon=126.854098')
+    # response_body = response.json()
+
+    # loaction = response_body['weather']['hourly'][0]['grid']['city'] + response_body['weather']['hourly'][0]['grid']['county'] + response_body['weather']['hourly'][0]['grid']['village']
+    # sky = response_body['weather']['hourly'][0]['sky']['name']
+
+    # tc = response_body['weather']['hourly'][0]['temperature']['tc']
+    # tmin = response_body['weather']['hourly'][0]['temperature']['tmin']
+    # tmx = response_body['weather']['hourly'][0]['temperature']['tmax']  
+    # timerelease = response_body['weather']['hourly'][0]['timeRelease']
+
+    # WeatherInfo.objects.create(loaction=loaction, sky=sky, tc=tc, tmin=tmin, tmx=tmx, timerelease=timerelease)    
+    # queryset = WeatherInfo.objects.all()
+    # serializer_class = WeatherSerializer
 
 
 
 
 @api_view(['GET'])
 def MapList(request):
-    # print('1111111111111111')
+
     print(111111111111111)
     # aaa = request.GET.get('aaa')
     # bbb = request.GET.get('bbb')
+    # # print(aaa)
 
     # response = requests.get('https://api2.sktelecom.com/weather/current/hourly?appKey=l7xx93f82b03bbea415abb503b02136a2f34&version=1&lat={}&lon={}'.format(aaa, bbb))
     # response_body = response.json()
@@ -169,3 +213,65 @@ def MapList(request):
     
     # WeatherInfo.objects.create(loaction=loaction, sky=sky, tc=tc, tmin=tmin, tmx=tmx, timerelease=timerelease)
     # return JsonResponse(weatherdata)
+
+
+    
+# def rainraderinfo(request):
+
+def rainraderinfo(request):
+    
+    #  # 승재
+    # base_dir = 'C:/Users/multicampus/seungjae/2월/테트리스 2월 시작/tetris-front/public/img'
+
+    # #승규
+    # base_dir = 'C:/Users/saffy/2학기프로젝트/s02p13c104/테트리스 2월 시작/tetris-front/public/img'
+
+    # # 효진
+    # base_dir = 'C:/Users/saffy/프로젝트폴더/s02p13c104/테트리스 2월 시작/tetris-front/public/img'
+
+    # #나라
+    # base_dir = 'C:/Users/saffy/프로젝트폴더/s02p13c104/테트리스 2월 시작/tetris-front/public/img'
+
+
+    # os.chdir(base_dir)
+    
+    # url = 'http://apis.data.go.kr/1360000/RadarImgInfoService/getCmpImg?serviceKey=NpK80f5ZwAD0mk%2BZjfrgUPTG3JLqubh%2FIYXSEzEou0kvKMi8ZnNIsv9ud8YF%2Bvyz4oBURYsKS09uXwASEHdr%2FA%3D%3D&pageNo=1&numOfRows=10&dataType=XML&data=CMP_WRC&time=2020{}{}'.format(month, day)
+    # xml_data = urlopen(url).read().decode('utf8')
+
+    # data = elemTree.fromstring(xml_data)
+    # item = data.find('./body/items/item')
+
+    # img_file_lst = []
+    
+    # clock = int((datetime.datetime.now()).strftime('%H'))
+    # if clock == 0:
+    #     img = Image.open('rainrader.png')
+    #     img.save('rainrader.gif')
+    # else:
+    #     for i in range(-1, -10, -1):
+    #         img_file_lst.append(item[i].text)
+    #     img_file_list = img_file_lst.sort()
+    #     img_file_to_gif(img_file_lst, "rainrader.gif")
+        
+    # # 승재
+    # base_dir = 'C:/Users/multicampus/seungjae/2월/테트리스 2월 시작/tetris-back'
+
+    # #승규
+    # base_dir = 'C:/Users/saffy/2학기프로젝트/s02p13c104/테트리스 2월 시작/tetris-back'
+    
+    # # 효진
+    # base_dir = 'C:/Users/saffy/프로젝트폴더/s02p13c104/테트리스 2월 시작/tetris-back'
+
+    # #나라
+    # base_dir = 'C:/Users/saffy/프로젝트폴더/s02p13c104/테트리스 2월 시작/tetris-back'
+
+    # os.chdir(base_dir)
+
+    weatherdata = {'title': 1}
+    return JsonResponse(weatherdata)
+
+# def img_file_to_gif(img_files, output_file_name):
+#     imgs_array = [np.array(imageio.imread(img_file)) for img_file in img_files]
+#     imageio.mimsave(output_file_name, imgs_array, duration=0.5)
+    
+
