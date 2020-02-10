@@ -21,7 +21,7 @@
                                     <p><img class=" img-fluid" v-bind:src="news.newsimg" alt="card image"></p>
                                     <h4 class="card-title">{{news.title}}</h4>
                                     <!-- <p class="card-text">{{news.discription}}</p> -->
-                                    <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                    <!-- <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a> -->
                                 </div>
                             </div>
                         </div>
@@ -29,8 +29,8 @@
                             <div class="card">
                                 <div class="card-body text-center mt-4">
                                     <h4 class="card-title">{{news.title}}</h4>
-                                    <p class="card-text">{{news.discription}}</p>
-                                    <ul class="list-inline">
+                                    <a class="card-text" v-bind:href="news.newslink">{{news.discription}}</a>
+                                    <!-- <ul class="list-inline">
                                         <li class="list-inline-item">
                                             <a class="social-icon text-xs-center" target="_blank" href="#">
                                                 <i class="fa fa-facebook"></i>
@@ -51,7 +51,7 @@
                                                 <i class="fa fa-google"></i>
                                             </a>
                                         </li>
-                                    </ul>
+                                    </ul> -->
                                 </div>
                             </div>
                         </div>
@@ -107,7 +107,7 @@ export default {
 
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 #team {
-    background: #eee !important;
+    background:none !important;
 }
 
 .btn-primary:hover,
@@ -137,7 +137,7 @@ section .section-title {
 
 #team .card {
     border: none;
-    background: #ffffff;
+    background: #eeeeee;
 }
 
 .image-flip:hover .backside,
@@ -240,5 +240,14 @@ section .section-title {
     -webkit-line-clamp: 5; 
     -webkit-box-orient: vertical;
         
+}
+
+.card-title{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical;
+    font-family: 'Jua', sans-serif;
 }
 </style>
