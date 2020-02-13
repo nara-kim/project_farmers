@@ -1,10 +1,9 @@
 <template>
-  <div class="SNS">
+  <div class="Write">
     <section class="blog-post-area section-margin mt-4">
       <div class ="container">
         <div class = "row">
-            <Com_Sns_Left/>
-            <Com_Sns_Right/>
+            <Com_Sns_Write/>
         </div>
       </div>
     </section>
@@ -14,14 +13,12 @@
 <script>
 // @ is an alias to /src
 // import One from '@/components/One.vue'
-import Com_Sns_Left from '@/components/Com_Sns_Left.vue'
-import Com_Sns_Right from '@/components/Com_Sns_Right.vue'
+import Com_Sns_Write from '@/components/Com_Sns_Write.vue'
 
 export default {
-  name: 'SNS',
+  name: 'Write',
   components: {
-    Com_Sns_Left,
-    Com_Sns_Right,
+    Com_Sns_Write,
   }
 }
 </script>

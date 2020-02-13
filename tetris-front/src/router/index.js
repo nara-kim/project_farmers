@@ -6,6 +6,8 @@ import Login from '../views/Login.vue'
 import Signup from '../views/Signup.vue'
 import Board from '../views/Board.vue'
 import Detail_Sns from '../views/Detail_Sns.vue'
+import Sns_Write from '../views/Sns_Write.vue'
+import View_Board_Write from '../views/View_Board_Write.vue'
 
 Vue.use(VueRouter)
 
@@ -17,7 +19,7 @@ const routes = [
   },
   {
     path: '/sns',
-    name: 'home',
+    name: 'sns',
     component: Sns
   },
   {
@@ -39,7 +41,17 @@ const routes = [
     path: '/detail_sns',
     name: 'detail_sns',
     component: Detail_Sns
-  }
+  },
+  {
+    path : '/sns_write',
+    name:'sns_write',
+    component: Sns_Write
+  },
+  {
+    path : '/view_board_write',
+    name:'view_board_write',
+    component: View_Board_Write
+  },
 ]
 
 const router = new VueRouter({

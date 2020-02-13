@@ -1,23 +1,22 @@
 <template>
-  <div class="container">
-     <br><p class="text-center">농촌 포털 사이트</p>
-      <hr>
-    <div class="row" style="">
+ 
+<!-- <div class = "newsdiv"> -->
+  <!-- <div class="container">
+
+    <div class="row"> -->
 <!-- 시작 -->
-   
+   <div class="col-lg-8">
 
    <section id="team" class="pb-5">
     <div class="container">
-        <h5 class="section-title h1">News</h5>
-
-        <div class="row">
+        <div class="row" >
             <!-- Team member -->            
             <div class="col-xs-12 col-sm-6 col-md-4" v-for="news of newslist" v-bind:key="news.id">
                 <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                     <div class="mainflip">
                         <div class="frontside">
                             <div class="card">
-                                <div class="card-body text-center">
+                                <div class="card-body text-center" style="margin-top: 20px;">
                                     <p><img class=" img-fluid" v-bind:src="news.newsimg" alt="card image"></p>
                                     <h4 class="card-title">{{news.title}}</h4>
                                     <!-- <p class="card-text">{{news.discription}}</p> -->
@@ -57,22 +56,21 @@
                         </div>
                     </div>
                 </div>
+                
             </div>
             
-
-    
-
 
         </div>
     </div>
 </section>
 
-
+</div>
 <!-- ==================  2-carousel bootstrap.// ==================  -->   
      
-
-    </div>
-  </div>
+  
+    <!-- </div>
+  </div> -->
+<!-- </div> -->
 <!--container end.//-->
 </template>
  
@@ -106,6 +104,10 @@ export default {
 /* FontAwesome for working BootSnippet :> */
 
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+.newsdiv{
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
 #team {
     background:none !important;
 }
@@ -214,11 +216,11 @@ section .section-title {
 
 .frontside .card,
 .backside .card {
-    min-height: 312px;
+    min-height: 212px;
 }
 
 .backside .card a {
-    font-size: 18px;
+    font-size: 15.5px;
     color: #007b5e !important;
 }
 

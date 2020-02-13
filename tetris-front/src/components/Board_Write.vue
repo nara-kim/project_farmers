@@ -1,86 +1,154 @@
 <template>
-
-    <table class="table table-striped table-rwd-name table-hidden" style="width:50%; margin-left:400px;  ">
-
-<thead class="table-only-hide">
-    <h3>공지사항</h3>
-
-    <tr>
-        <th>번호</th>
-        <th style="padding-left : 390px;">제목</th>
-        <th style="padding-right : 80px;">글쓴이</th>
-    </tr>
-</thead>
-    <tbody>
-  <tr>
-      <td data-label="num">1</td>
-      <td data-label="name">제목자리</td>
-      <td data-label="writer">글쓴이자리</td>
-  </tr>
-  <tr>
-      <td data-label="num">2</td>
-      <td data-label="name">제목자리</td>
-      <td data-label="writer">글쓴이자리</td>
-  </tr>
-  <tr>
-      <td data-label="num">3</td>
-      <td data-label="name">제목자리</td>
-      <td data-label="writer">글쓴이자리</td>
-  </tr>
- 
-</tbody>
+<!-- <div class="container">
+	<h2>반응형 테이블</h2>  
+	<div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+		<th>#</th>
+		<th>Table heading</th>
+		<th>Table heading</th>
+		<th>Table heading</th>
+		<th>Table heading</th>
+		<th>Table heading</th>
+		<th>Table heading</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+		<td>1</td>
+		<td>Table cell</td>
+		<td>Table cell</td>
+		<td>Table cell</td>
+		<td>Table cell</td>
+		<td>Table cell</td>
+		<td>Table cell</td>
+        </tr>
+        <tr>
+		<td>2</td>
+		<td>Table cell</td>
+		<td>Table cell</td>
+		<td>Table cell</td>
+		<td>Table cell</td>
+		<td>Table cell</td>
+		<td>Table cell</td>
+        </tr>
+        <tr>
+		<td>3</td>
+		<td>Table cell</td>
+		<td>Table cell</td>
+		<td>Table cell</td>
+		<td>Table cell</td>
+		<td>Table cell</td>
+		<td>Table cell</td>
+        </tr>
+        </tbody>
         </table>
+	</div>
+</div> -->
 
+<!-- 두번째 -->
+<div class = "boardtable">
+    <div class="container">
+        <div class="row">
+            <table>
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Job Title</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>James</td>
+                        <td>Matman</td>
+                        <td>Chief Sandwich Eater</td>
+                    </tr>
+                    <tr>
+                        <td>The</td>
+                        <td>Tick</td>
+                        <td>Crimefighter Sorta</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+			<button class = "button"><router-link to ='view_board_write'>글쓰기</router-link></button>
+
+    </div>
+
+</div>
 </template>
 
 <style scoped>
-.table-hidden tbody{
-    /* overflow-y: scroll; */
-   height: 200px;
-   display: block;   
+.boardtable{
+    margin-bottom: 10%;
 }
-.table-hidden tr {
-   width: 100%;
-   display: inline-table;
+.button{
+	margin-top: 2%;
+	height: 45px;
+	border-radius: 10px;
+	float: right;
 }
-.table-rwd-name{background-color: rgba(255,255,255,0.5);}
-.table-rwd-name tfoot th{
-    background-color: #FFF;
-   border-bottom: 1px solid #F90 !important;
-   text-align: left;
-   background-color: #fcf5e6;
-   
+table { 
+  width: 100%; 
+  border-collapse: collapse; 
 }
-.board{
-    width :"10px";
+tr:nth-of-type(odd) { 
+  background: #eee; 
 }
-@media (max-width: 736px) {
-  .table-rwd-name tr, 
-  .table-rwd-name td, 
-  .table-rwd-name th
-  {
-      display: block;
-      border-top: 0 !important;
-  }
-  .table-rwd-name td {
-    text-align: left;
-    font-size: 15px;
-    overflow: hidden;
-    width: 100%;
-    }
- .table-rwd-name td:before {
-    content: attr(data-label);
-    float: left;
-    text-transform: uppercase;
-    font-weight: bold;
-   margin-right: 10px
-  }
-  thead.table-only-hide {
-    display: none !important;
-  }
+th { 
+  background: #333; 
+  color: white; 
+  font-weight: bold; 
 }
-@media (min-width: 736px) {
-.table-hidden td[data-label="name"]{ width:150px;}
-.table-hidden td[data-label="writer"]{ width:183px;}    
+td, th { 
+  padding: 6px; 
+  border: 1px solid #ccc; 
+  text-align: left; 
+}
+
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+	table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+	
+	thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	tr { border: 1px solid #ccc; }
+	
+	td { 
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+	}
+	
+	td:before { 
+		position: absolute;
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
+
+	td:nth-of-type(1):before { content: "First Name"; }
+	td:nth-of-type(2):before { content: "Last Name"; }
+	td:nth-of-type(3):before { content: "Job Title"; }
+	td:nth-of-type(4):before { content: "Favorite Color"; }
+	td:nth-of-type(5):before { content: "Wars of Trek?"; }
+	td:nth-of-type(6):before { content: "Porn Name"; }
+	td:nth-of-type(7):before { content: "Date of Birth"; }
+	td:nth-of-type(8):before { content: "Dream Vacation City"; }
+	td:nth-of-type(9):before { content: "GPA"; }
+	td:nth-of-type(10):before { content: "Arbitrary Data"; }
 }
 </style>

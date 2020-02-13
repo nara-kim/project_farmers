@@ -11,17 +11,17 @@
                </span>
 
                <div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter username">
-                  <input class="input100" type="text" name="username">
+                  <input class="input100" type="text" v-model="credential.username">
                   <span class="focus-input100" data-placeholder="Username"></span>
                </div>
 
                <div class="wrap-input100 validate-input m-b-50" data-validate="Enter password">
-                  <input class="input100" type="password" name="pass">
+                  <input class="input100" type="password" v-model="credential.password">
                   <span class="focus-input100" data-placeholder="Password"></span>
                </div>
 
                <div class="container-login100-form-btn">
-                  <button class="login100-form-btn">
+                  <button @click.prevent="login" class="login100-form-btn">
                      Login
                   </button>
                </div>
@@ -53,7 +53,57 @@
       </div>
    </div>
 </template>
+<script>
+import axios from "axios";
 
+export default {
+    name: "LoginForm",
+    data() {
+        return {
+            credential: {
+                username: "",
+                password: ""
+            },
+            testdata: {
+                username: "seungue0001",
+                password: "tmdrb0001"
+            },
+            errorMessage: ""
+        };
+    },
+    methods: {
+        login() {
+            axios
+                .post('http://localhost:8000/auth/accounts/login/', this.credential)
+                .then(res => {
+                    console.log(res.data.token)
+                    const { token } = res.data;
+                    console.log('1')
+                    this.$session.set("mmr-token", token); // 세션에 저장
+                    console.log('2')
+                    this.$store.dispatch("setTokenAction", token); // vuex token에 저장
+                    console.log("3")
+                    this.$router.push("/"); // 홈에 보내기
+                    console.log('로그인 끝!!!')
+                })
+                .catch(() => {
+                this.loginAlert();
+                });
+         },
+        loginAlert() {
+        this.errorMessage =
+            "아이디 또는 비밀번호가 올바르지 않습니다. / 한영키를 확인해주세요.";
+        },
+        onUsername(e) {
+        this.credential.username = e.target.value;
+        },
+        onPassword(e) {
+        this.credential.password = e.target.value;
+        }
+    }
+}
+
+</script>
 
 <style scoped>
 

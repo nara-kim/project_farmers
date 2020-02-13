@@ -11,7 +11,7 @@
 
                <div class="wrap-input100 validate-input" data-validate="Name is required">
                   <span class="label-input100">Full Name</span>
-                  <input class="input100" type="text" name="name" placeholder="Name..." @keyup="onUsername">
+                  <input class="input100" type="text" name="name" placeholder="Name..." v-model="credential.username">
                   <small v-if="error.username">{{ error.username }}</small>
                   <span class="focus-input100"></span>
                </div>
@@ -30,14 +30,14 @@
 
                <div class="wrap-input100 validate-input" data-validate = "Password is required">
                   <span class="label-input100">Password</span>
-                  <input class="input100" type="text" name="pass" placeholder="*************" @keyup="onPassword">
+                  <input class="input100" type="password" name="pass" placeholder="*************" v-model="credential.password">
                   <small v-if="error.password">{{ error.password }}</small>
                   <span class="focus-input100"></span>
                </div>
 
                <div class="wrap-input100 validate-input" data-validate = "Repeat Password is required">
                   <span class="label-input100">Repeat Password</span>
-                  <input class="input100" type="text" name="repeat-pass" placeholder="*************" @keyup="onPasswordConfirm">
+                  <input class="input100" type="password" name="repeat-pass" placeholder="*************" v-model="credential.passwordConfirm">
                   <small v-if="error.passwordConfirm">{{ error.passwordConfirm }}</small>
                   <span class="focus-input100"></span>
                </div>
@@ -87,6 +87,11 @@ export default {
                 password: "",
                 passwordConfirm: "",
             },
+            testdata:{
+               username: "seungue0004",
+               password: "tmdrb0004",
+               passwordConfirm: "tmdrb0004",
+            },
             error: {
                 username: "",
                 password: "",
@@ -116,8 +121,8 @@ export default {
                         console.log('로그인 만 되면 뢰녀라')
                         // 로그인 시키고 홈으로.
                         const { token } = res.data;
+                        this.$session.set("mmr-token", token);
                         this.$store.dispatch("setTokenAction", token);
-                        // this.$session.set("mmr-token", token);
                         this.$router.push("/");
                     })
                     .catch(err => {

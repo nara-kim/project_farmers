@@ -1,13 +1,12 @@
 <template>
-    <div class="col-lg-4 sidebar-widgets">
-        <div class="widget-wrap">
+
+        <div class="widget-wrap" style="margin-top:40px;">
             <!-- <div class="single-sidebar-widget newsletter-widget"> -->
                
-                <img src="img/rainrader.gif" alt="">
+                <img src="img/rainrader.gif" alt="" style="width:350px;">
                 
             <!-- </div> -->
         </div>
-    </div>
 </template>
 
 <script>

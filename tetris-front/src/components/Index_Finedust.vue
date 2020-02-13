@@ -1,10 +1,10 @@
 <template>
-  <div class="col-lg-4 sidebar-widgets">
+  <!-- <div class="col-lg-4 sidebar-widgets"> -->
+    <div class ="finedust">
     <div v-for="dust of dustlist" v-bind:key="dust.id">
       <div class="widget-wrap">
-        <div class="single-sidebar-widget post-category-widget">
-          <h4 class="single-sidebar-widget__title" style="letter-spacing:3px">미세먼지</h4>
-
+        <!-- <div class="single-sidebar-widget post-category-widget"> -->
+          <!-- <h4 class="single-sidebar-widget__title" style="letter-spacing:3px">미세먼지</h4> -->
           <div>
             <div>
                 <div>
@@ -12,12 +12,12 @@
                       <div class="current">
                         <div class="location_time">
                           <h5>현재위치</h5>
-                          <span>
+                          <span class = "station">
                             <h5>{{dust.stationname}}</h5>
                           </span>
                           <span>
                             {{dust.dataTime}}
-                          </span>
+                          </span>   
                         </div>
                         <div class="future">
                           <div class="finedust_left">
@@ -60,7 +60,7 @@
             </div>
           </div>   
 
-        </div>
+        <!-- </div> -->
       </div>
     </div>
   </div>
@@ -92,12 +92,18 @@ export default {
 
 
 <style scoped>
+.station{
+
+}
+.finedust{
+  margin-top: 60px;
+}
 .single-sidebar-widget__title{
   font-size: 180%;
 }
 .single-sidebar-widget{
   /* background-color: #def0fa; */
-  background-image: url("/img/vvvvvvv.jpg");
+  /* background-image: url("/img/vvvvvvv.jpg"); */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
