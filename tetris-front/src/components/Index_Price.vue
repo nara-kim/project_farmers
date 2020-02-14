@@ -1,50 +1,50 @@
 <template>
 
-<div class = "price">
+<div>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
-	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
-    <!-- <div v-for="price of pricelist" v-bind:key="price.id">
-      {{price.test.split('/')[1].split(',')[1].split("'")[1]}}
-      {{price.test.split('/')[1].split(',')[2].split("'")[1]}}
-      {{price.test.split('/')[1].split(',')[3].split("'")[1]}}
-      가격
-  </div> -->
-
-<div class="spe-cor">
+<div class="spe-cor"  style=" font-family: 'Jua', sans-serif;">
     <div class="container">
-        <h2>Responsive Slider <small>[Just Use Normal Slider Code and Get Full Responsive Slider]</small></h2>
+        <h5 style="text-align:center;">이달의 농업기술</h5>
         <div class="row">
             <div id="slider-1" class="carousel carousel-by-item slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <div class="col-lg-2 col-md-3 col-sm-4 col-4">
-                            <img class="d-block img-fluid" src="https://images.unsplash.com/photo-1564359916269-08ddfdf543ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="First slide">
+                            <button>
+                                
+                            </button>
+                            <img class="d-block img-fluid" src="img/난방비.png">
                         </div>
                     </div>
                     <div class="carousel-item">
                         <div class="col-lg-2 col-md-3 col-sm-4 col-4">
-                            <img class="d-block img-fluid" src="https://images.unsplash.com/photo-1558979158-65a1eaa08691?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="First slide">
+                            <img class="d-block img-fluid" src="img/과수화상병.png">
                         </div>
                     </div>
                     <div class="carousel-item">
                         <div class="col-lg-2 col-md-3 col-sm-4 col-4">
-                            <img class="d-block img-fluid" src="https://images.unsplash.com/photo-1562101806-ecd80e69bbb7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="First slide">
+                            <img class="d-block img-fluid" src="img/배.png">
                         </div>
                     </div>
                     <div class="carousel-item">
                         <div class="col-lg-2 col-md-3 col-sm-4 col-4">
-                            <img class="d-block img-fluid" src="https://images.unsplash.com/photo-1564423531399-89ed4c4e3ddb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="Second slide">
+                            <img class="d-block img-fluid" src="img/국내산.png">
                         </div>
                     </div>
                     <div class="carousel-item">
                         <div class="col-lg-2 col-md-3 col-sm-4 col-4">
-                            <img class="d-block img-fluid" src="https://images.unsplash.com/flagged/photo-1564373020761-b9e8ab5c03b0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="Third slide">
+                            <img class="d-block img-fluid" src="img/농진청검은보리.png">
                         </div>
                     </div>
                     <div class="carousel-item">
                         <div class="col-lg-2 col-md-3 col-sm-4 col-4">
-                            <img class="d-block img-fluid" src="https://images.unsplash.com/photo-1564410267845-ae5acf1ce8d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="Third slide">
+                            <img class="d-block img-fluid" src="img/생강.png">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="col-lg-2 col-md-3 col-sm-4 col-4">
+                            <img class="d-block img-fluid" src="img/소화장애.png">
                         </div>
                     </div>
                 </div>
@@ -65,36 +65,6 @@
 
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-
-<script>
-import axios from 'axios';
-
-export default {
-  data() {
-    return {	
-      weatherlist: []
-    }
-  },
-  created() {
-    this.all();
-  },
-  methods: {
-    all: function () {
-      axios.get('http://127.0.0.1:8000/api/weatherinfo/')
-        .then( response => {
-                    this.weatherlist = response.data
-        })
-        .catch( err => {
-                    console.log(err)
-      });
-    }
-
-
-    
-  },
-
-}
-</script>
 
 <script>
 var mainFunction = function(options) {
@@ -120,9 +90,9 @@ var mainFunction = function(options) {
         return l
     }
     setcss = function(e, l, s) {
-		var t = [];
+      var t = [];
         $.each(vars.breakPoint,function(i,e){
-			t.push("");
+         t.push("");
         })
         for (var c = d = f = g = 0, o = [], a = 0; a < e.length; a++) {
             var i = e[a].split("-");
@@ -202,7 +172,7 @@ $(document).ready(function() {
   display: none;
 }
 .price{
-	margin-bottom: 5%;
+   margin-bottom: 5%;
 }
 .spe-cor{
     height: 180px;

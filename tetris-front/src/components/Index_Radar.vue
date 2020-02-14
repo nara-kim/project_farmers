@@ -1,6 +1,7 @@
 <template>
 
-        <div class="widget-wrap" style="margin-top:40px;">
+        <div class="widget-wrap" style="margin-top:40px;  font-family: 'Jua', sans-serif;">
+          레이더<hr>
             <!-- <div class="single-sidebar-widget newsletter-widget"> -->
                
                 <img src="img/rainrader.gif" alt="" style="width:350px;">
@@ -25,7 +26,7 @@ export default {
             .then(
                 response => (this.raderlist = response.data)
                 );
-    }, 300000);
+    }, 30000000);
 
 }
 }

@@ -2,10 +2,11 @@
 <!--================ Start Blog Post Area =================-->
 
 
-    <div class="col-lg-8">
+    <!-- <div class="col-lg-8" style=" font-family: 'Jua', sans-serif;"> -->
 
             <!-- 여기부터 -->
-    <div class="page-content page-container" id="page-content">
+    <div class="page-content page-container" id="page-content" style=" font-family: 'Jua', sans-serif;">
+        날씨 <hr>
     <div>
         <div class="thumb" v-for="weather of weatherlist" v-bind:key="weather.id">      
                 <div class="card card-weather">
@@ -258,33 +259,45 @@
 
 
             
-            <!-- 여기까지 -->
+            
+         <!-- 여기서부터 통보문 -->
             <div class="row">
               <div class="col-lg-12">
                   <nav class="blog-pagination justify-content-center d-flex">
-                      <ul class="pagination">
-                          <li class="page-item">
-                              <a href="#" class="page-link" aria-label="Previous">
-                                  <span aria-hidden="true">
-                                      <i class="ti-angle-left"></i>
-                                  </span>
-                              </a>
-                          </li>
-                          <li class="page-item active"><a href="#" class="page-link">1</a></li>
-                          <li class="page-item"><a href="#" class="page-link">2</a></li>
-                          <li class="page-item">
-                              <a href="#" class="page-link" aria-label="Next">
-                                  <span aria-hidden="true">
-                                      <i class="ti-angle-right"></i>
-                                  </span>
-                              </a>
-                          </li>
+                      <ul>
+                        <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal2">
+                                날씨해설
+                            </button>
+                        <!-- Modal -->
+                            <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">{{date[0].year}}년 {{date[0].month}}월 {{date[0].day}}일 {{date[0].time}}시 발효</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div v-html="notice"></div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
                       </ul>
                   </nav>
               </div>
             </div>
+            <!-- 여기까지 -->
+
+
+        
           </div>
-    </div>
+    <!-- </div> -->
     <!--================ End Blog Post Area =================-->
 </template>
 
@@ -296,52 +309,40 @@ export default {
   data() {
     return {
         // weatherlist: [],
-        weatherlist: []
-
-
-
-
+        weatherlist: [],
+        notice : [],
+        date : []
         }  
     },
-    methods:{
-        location(){
-            if (navigator.geolocation) {
-                const temp = this
-                navigator.geolocation.getCurrentPosition(function(postion){
-                    const lat = postion.coords.latitude // 위도
-                    const lon = postion.coords.longitude //경도
-                axios.get('http://127.0.0.1:8000/api/weatherinfolive/', {
-                    params: {
-                        Lat: lat,
-                        Lon: lon,
-                    }})
-                    .then(res=>{
-                        temp.weatherlist = res.data
-                    })
-
-                });
-            }   else {
-                console.log("에러")
-            }
-            }
-        },
-        mounted(){
-                navigator.geolocation.getCurrentPosition(function(position){
-                    const lat = position.coords.latitude //위도
-                    const lon = position.coords.longitude // 경도
-                axios.get('http://127.0.0.1:8000/api/weatherinfo/', {
-                    params: {
-                        Lat: lat,
-                        Lon: lon,
-                }})
+    mounted(){
+        const temp = this
+        navigator.geolocation.getCurrentPosition(function(position){
+            const lat = position.coords.latitude //위도
+                const lon = position.coords.longitude // 경도
+            axios.get('http://127.0.0.1:8000/api/weatherinfo/', {
+                params: {
+                    Lat: lat,
+                    Lon: lon,
+            }})
+            .then(res=>{
+                temp.weatherlist = res.data
+                console.log(temp.weatherlist)
+            })});
+            this.interval = setInterval(()=>{
+                axios.get('http://127.0.0.1:8000/api/WeathernoticeList/')
                 .then(res=>{
-                    this.weatherlist = res.data
-                })
-                
+                    res.data
+                    })
+            }, 21600000);
+            axios.get('http://127.0.0.1:8000/api/WeatherNotice/')
+            .then(res=>{
+                this.notice = res.data
+                this.date = res.data
+                this.notice = this.notice[0].content.replace(/(?:\r\n|\r|\n)/g, '<br />') 
+            });
+
         }
-                )}
 }
-                   
 </script>
 
 

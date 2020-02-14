@@ -82,9 +82,11 @@
 
 <style scoped>
 .boardtable{
+	font-family: 'Jua', sans-serif;
     margin-bottom: 10%;
 }
 .button{
+	font-family: 'Jua', sans-serif;
 	margin-top: 2%;
 	height: 45px;
 	border-radius: 10px;

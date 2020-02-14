@@ -38,12 +38,12 @@
 
             </ul>
             <ul v-if="isAuthenticated" class="nav navbar-nav navbar-right navbar-social" style="width : 180px" >
-              <li class ="nav-item"><a class="nav-link" style="font-size:small">{{userName}}</a></li>
-              <li class="nav-item"><a class="nav-link" style="font-size:small" @click.prevent="logout">로그아웃</a></li>
+              <li class ="nav-item"><a class="nav-link" style="font-size:large">{{userName}}</a></li>
+              <li class="nav-item"><a class="nav-link" style="font-size:large" @click.prevent="logout">로그아웃</a></li>
             </ul>
-             <ul v-else class="nav navbar-nav navbar-right navbar-social" style="width : 180px" >
-              <li class ="nav-item"><router-link to="/login"><a class="nav-link" style="font-size:small">로그인</a></router-link></li>
-              <li class="nav-item"><router-link to="/signup"><a class="nav-link" style="font-size:small">회원가입</a></router-link></li>
+             <ul v-else class="nav navbar-nav navbar-right navbar-social" style="width : 180px">
+              <li class ="nav-item"><router-link to="/login"><a class="nav-link" style="font-size:large;">로그인</a></router-link></li>
+              <li class="nav-item"><router-link to="/signup"><a class="nav-link" style="font-size:large">회원가입</a></router-link></li>
             </ul> 
           </div> 
         </div>
@@ -53,43 +53,22 @@
     </div>
     <router-view/>
     <!-- footer -->
-     <div class="footer">
-      <div class="footer1">
-      <div class="container-fluid">
-        
-        <div class="container ">
-        <div class="row">
-          <div class="col-sm-4">
-            <img class="logoimg" src="img/logo.png">
-                <h6>김나라 박승규 박승재 최효진</h6>
-            <br>
-          </div>
-          <!-- <div class="col-sm-4">
-            <h2>Home</h2>
-            <p>
-              <i class="fa fa-home"></i><a href="#"> Home</a><br>
-              <i class="fa fa-user-o"></i><a href="#"> About Us</a><br>
-              <i class="fa fa-map-marker"></i><a href="#"> Contact Us</a><br>
-              <i class="fa fa-briefcase"></i><a href="#"> Services</a><br>
-              <i class="fa fa-question-circle"></i><a href="#"> Term & Conditions</a><br><br>
+     
+    <footer class="container-fluid text-center bg-lightgray" style="height:100px;background-color:black">
+
+        <div class="copyrights" style="margin-top:25px;">
+          <img src="img/logo.png" style="width:10%; float:left">
+          <!-- <p><a href="https://www.linkedin.com/in/michael-clark-webdeveloper" target="_blank">
+            <i class="fa fa-linkedin-square" aria-hidden="true"></i></a></p> -->
+            <p style="color:black">dfd</p>
+            <p>Farmers © 2020, Samsung Software Academy For Youth
+              <a href="#" style="float:right"><img src="img/icon2.png" style="width:30px;"></a>
             </p>
-
-          </div> -->
-          <div class="col-sm-4 ">
-            <h2>SSAFY</h2>
-            <p>광주광역시 광산구 하남산단 6번로 107</p>
-            <p>Samsung Software Academy For Youth</p>
-          </div>
-
-          <div class="col-sm-4 ">
-            <a href="#">위로</a>
-          </div>
+                <!-- <span>Samsung Software Academy For Youth</span></p> -->
+            
         </div>
-          <div class="clear30"></div>
-      </div>
-    </div>
-  </div>
-</div>
+</footer>
+<!-- Footer -->
     <!-- footer end -->
   </div>
 </template>
@@ -130,38 +109,12 @@ export default {
 }
 
 /* footer */
-.footer1{
- background-color: black;
- color: white;
-
+@import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+.bg-lightgray
+{
+    background-color:LightGray;
 }
-.footer1 h2{
-	margin: 5px;
-	padding: 8px;
-	font-size: 25px;
-	font-family: "Times New Roman", Times, serif;
-	
-}
-.footer1 a{
-	color: white;
-}
-.footer1 a:hover{
-	color: ;
-}
-
-.footer1 p{
-	margin: 5px;
-	padding-top: 2px;
-	padding-left: 10px;
-	font-size: 18px;
-	font-family: "Times New Roman", Times, serif;
-	
-}
-.footer1 h2{margin: 5px;
-	padding: 5px;
-	border-bottom: 1px solid white;
-	
-	
-}
-
 </style>
+
+    <!-- footer end -->
+

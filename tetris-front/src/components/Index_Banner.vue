@@ -1,5 +1,5 @@
 <template>
-<div class="container">
+<div class="container" style=" font-family: 'Jua', sans-serif;">
       <!-- ================== 1-carousel bootstrap  ==================  -->
     <div class="row">
       <aside class="col-md-8" style="padding:0;">

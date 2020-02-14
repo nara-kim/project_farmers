@@ -5,9 +5,10 @@
 
     <div class="row"> -->
 <!-- 시작 -->
-   <div class="col-lg-8">
-
-   <section id="team" class="pb-5">
+   <!-- <div class="col-lg-8" style="margin-top:60px; font-family: 'Jua', sans-serif;"> -->
+       <!-- 뉴스<hr> -->
+   <section id="team" class="pb-5"  style=" font-family: 'Jua', sans-serif;">
+       뉴스 <hr>
     <div class="container">
         <div class="row" >
             <!-- Team member -->            
@@ -64,7 +65,7 @@
     </div>
 </section>
 
-</div>
+<!-- </div> -->
 <!-- ==================  2-carousel bootstrap.// ==================  -->   
      
   
@@ -126,9 +127,9 @@ export default {
     border-color: #007b5e;
 }
 
-section {
+/* section {
     padding: 60px 0;
-}
+} */
 
 section .section-title {
     text-align: center;

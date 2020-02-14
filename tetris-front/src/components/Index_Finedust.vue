@@ -1,6 +1,7 @@
 <template>
   <!-- <div class="col-lg-4 sidebar-widgets"> -->
-    <div class ="finedust">
+    <div class ="finedust" style=" font-family: 'Jua', sans-serif;">
+    미세먼지 <hr>
     <div v-for="dust of dustlist" v-bind:key="dust.id">
       <div class="widget-wrap">
         <!-- <div class="single-sidebar-widget post-category-widget"> -->
@@ -9,15 +10,18 @@
             <div>
                 <div>
                   <div class="weather">
-                      <div class="current">
-                        <div class="location_time">
-                          <h5>현재위치</h5>
-                          <span class = "station">
-                            <h5>{{dust.stationname}}</h5>
-                          </span>
-                          <span>
+                      <div class="current" style="background-color:#cfcfcf; ">
+                        <div class="location_time" >
+                          <h5>현재위치
+                          <span style="display:inline-block; width:220px;text-align:right; font-size:15px;">
                             {{dust.dataTime}}
                           </span>   
+                          </h5>
+                          <span class = "station">
+                            <h5 style="font-size:15px;">{{dust.stationname}}</h5>
+                            <br>
+                          </span>
+                            
                         </div>
                         <div class="future">
                           <div class="finedust_left">
@@ -104,8 +108,8 @@ export default {
 .single-sidebar-widget{
   /* background-color: #def0fa; */
   /* background-image: url("/img/vvvvvvv.jpg"); */
-  background-repeat: no-repeat;
-  background-size: cover;
+  /* background-repeat: no-repeat; */
+  /* background-size: cover; */
   background-position: center;
   border: 1px solid #e4e4e4;
 }
@@ -123,9 +127,9 @@ export default {
     flex-flow: row wrap;
     /* background-image: url("/img/london.jpg"); */
     background-repeat: repeat-x;
-    color: white;
+    color: black;
     padding: 20px;
-    text-shadow: 1px 1px #F68D2E;
+    /* text-shadow: 1px 1px rgb(253, 231, 215); */
 }
 
 .weather .current .info
@@ -208,3 +212,4 @@ export default {
   background-color: rgba(0,0,0,0.5);
 }
 </style>
+

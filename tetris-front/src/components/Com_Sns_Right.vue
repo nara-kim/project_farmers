@@ -144,16 +144,17 @@
         </button>
       </div>
       <div class="modal-body">
-            <input type="file" id="8" ref="file" v-on:change="handleFileUpload()"/>
+            <!-- <input type="file" id="8" ref="file" v-on:change="handleFileUpload()"/> -->
+
+            <div class="filebox preview-image">
+            <!-- <input class="upload-name" value="파일선택" disabled="disabled">
+            <label for="input-file">업로드</label> -->
+            <label for="input-file">업로드</label> 
+            <input type="file" id="input-file" class="upload-hidden" v-on:change="handleFileUpload()">
+            <!-- <input class="upload-name" value="파일선택"> -->
+            </div>
+
             <textarea class="input_text" type="text" v-model="title" placeholder="무슨생각을 하고 계시나요?"></textarea>    
-
-
-
-		<div class="filebox preview-image">
-            <input class="upload-name" value="파일선택" disabled="disabled">
-            <label for="input-file">업로드</label>
-            <input type="file" id="input-file" class="upload-hidden">
-        </div>
 
 
       </div>
@@ -222,7 +223,7 @@ export default {
                 var reader = new FileReader();
                 reader.onload = function(e){ 
                     var src = e.target.result; 
-                    parent.prepend('<div class="upload-display"><div class="upload-thumb-wrap"><img src="'+src+'" class="upload-thumb" style="width:50%"></div></div>'); 
+                    parent.prepend('<div class="upload-display"><div class="upload-thumb-wrap"><img src="'+src+'" class="upload-thumb" style="width:50%; display: block; margin: 0px auto;"></div></div>'); 
                 }
                 reader.readAsDataURL($(this)[0].files[0]);
             }
@@ -237,8 +238,12 @@ export default {
                 img[0].style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(enable='true',sizingMethod='scale',src=\""+imgSrc+"\")";
             }
         });
-
-
+    },
+    bb(){
+        $("#file").on('change',function(){
+        var fileName = $("#file").val();
+        $(".upload-name").val(fileName);
+        });
     }
   },
     computed:{
@@ -248,6 +253,7 @@ export default {
     },
     mounted(){
         this.aa();
+        this.bb();
     }
 }
 </script>
@@ -292,6 +298,42 @@ export default {
     width: 50px;
 }
 
+.filebox input[type="file"] {
+    position: absolute;
+    width: 0;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+}
+.filebox label {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #999;
+    vertical-align: middle;
+    background-color: #fdfdfd;
+    cursor: pointer;
+    border: 1px solid #ebebeb;
+    border-radius: 5px;
+}
+.filebox .upload-name {
+    display: inline-block;
+  height: 35px;
+  font-size:18px; 
+  padding: 0 10px;
+    vertical-align: middle;
+    background-color: #f5f5f5;
+  border: 1px solid #ebebeb;
+  border-radius: 5px;
+
+}
+
+
+
+
+#input-file{
+    background-color: beige;
+}
 </style>
 
 
