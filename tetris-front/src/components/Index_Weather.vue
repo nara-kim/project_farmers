@@ -5,7 +5,7 @@
     <!-- <div class="col-lg-8" style=" font-family: 'Jua', sans-serif;"> -->
 
             <!-- 여기부터 -->
-    <div class="page-content page-container" id="page-content" style=" font-family: 'Jua', sans-serif;">
+    <div class="page-content page-container" id="page-content" style=" font-family: 'Nanum Gothic', sans-serif; font-weight:bold;">
         날씨 <hr>
     <div>
         <div class="thumb" v-for="weather of weatherlist" v-bind:key="weather.id">      
@@ -311,22 +311,26 @@ export default {
         // weatherlist: [],
         weatherlist: [],
         notice : [],
-        date : []
+        date : [],
+        lat:'',
+        lon:'',
         }  
     },
     mounted(){
-        const temp = this
+        // const temp = this
         navigator.geolocation.getCurrentPosition(function(position){
-            const lat = position.coords.latitude //위도
-                const lon = position.coords.longitude // 경도
-            axios.get('http://127.0.0.1:8000/api/weatherinfo/', {
-                params: {
-                    Lat: lat,
-                    Lon: lon,
-            }})
+            const formdata = new FormData()
+            this.lat = position.coords.latitude
+            this.lon = position.coords.longitude
+            console.log(this.lat)
+            console.log(this.lon)
+            formdata.append('lat', this.lat) //위도
+            formdata.append('lon', this.lon) // 경도
+            formdata.appent('test', 'testtest')
+            axios.post('http://127.0.0.1:8000/api/weatherinfo/', formdata)
             .then(res=>{
-                temp.weatherlist = res.data
-                console.log(temp.weatherlist)
+                this.weatherlist = res.data
+                console.log(this.weatherlist)
             })});
             this.interval = setInterval(()=>{
                 axios.get('http://127.0.0.1:8000/api/WeathernoticeList/')

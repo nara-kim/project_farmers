@@ -1,172 +1,51 @@
 <template>
     <!-- Start Blog Post Siddebar -->
-    <div class="col-lg-4 offset-lg-1 sidebar-widgets">
+    <div class="col-lg-6 offset-lg-3 sidebar-widgets" style="border:1px solid #ddd; margin-bottom:30px;">
         <div class="widget-wrap">
-            <div class="single-sidebar-widget newsletter-widget">
-            <h4 class="single-sidebar-widget__title">누구누구님 환영합니다.</h4>
+            <!-- <div class="single-sidebar-widget newsletter-widget"> -->
+            <!-- <h4 class="single-sidebar-widget__title">누구누구님 환영합니다.</h4> -->
             <div class="form-group mt-30">
                 <div class="col-autos">
                 <!-- <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Enter email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email'"> -->
                 </div>
             </div>
                     
-            <button type="button" class="bbtns d-block mt-20 w-100" data-toggle="modal" data-target="#exampleModalCenter">
+            <!-- <button type="button" class="bbtns d-block mt-20 w-100" data-toggle="modal" data-target="#exampleModalCenter">
                 글쓰기
-            </button>
-        </div>
+            </button> -->
 
-
-            <div class="single-sidebar-widget post-category-widget">
-            <h4 class="single-sidebar-widget__title">Catgory</h4>
-            <ul class="cat-list mt-20">
-                <li>
-                <a href="#" class="d-flex justify-content-between">
-                    <p>Technology</p>
-                    <p>(03)</p>
-                </a>
-                </li>
-                <li>
-                <a href="#" class="d-flex justify-content-between">
-                    <p>Software</p>
-                    <p>(09)</p>
-                </a>
-                </li>
-                <li>
-                <a href="#" class="d-flex justify-content-between">
-                    <p>Lifestyle</p>
-                    <p>(12)</p>
-                </a>
-                </li>
-                <li>
-                <a href="#" class="d-flex justify-content-between">
-                    <p>Shopping</p>
-                    <p>(02)</p>
-                </a>
-                </li>
-                <li>
-                <a href="#" class="d-flex justify-content-between">
-                    <p>Food</p>
-                    <p>(10)</p>
-                </a>
-                </li>
-            </ul>
-            </div>
-
-            <div class="single-sidebar-widget popular-post-widget">
-            <h4 class="single-sidebar-widget__title">Popular Post</h4>
-            <div class="popular-post-list">
-                <div class="single-post-list">
-                <div class="thumb">
-                    <img class="card-img rounded-0" src="img/blog/thumb/thumb1.png" alt="">
-                    <ul class="thumb-info">
-                    <li><a href="#">Adam Colinge</a></li>
-                    <li><a href="#">Dec 15</a></li>
-                    </ul>
-                </div>
-                <div class="details mt-20">
-                    <a href="blog-single.html">
-                    <h6>Accused of assaulting flight attendant miktake alaways</h6>
-                    </a>
-                </div>
-                </div>
-                <div class="single-post-list">
-                <div class="thumb">
-                    <img class="card-img rounded-0" src="img/blog/thumb/thumb2.png" alt="">
-                    <ul class="thumb-info">
-                    <li><a href="#">Adam Colinge</a></li>
-                    <li><a href="#">Dec 15</a></li>
-                    </ul>
-                </div>
-                <div class="details mt-20">
-                    <a href="blog-single.html">
-                    <h6>Tennessee outback steakhouse the
-                        worker diagnosed</h6>
-                    </a>
-                </div>
-                </div>
-                <div class="single-post-list">
-                <div class="thumb">
-                    <img class="card-img rounded-0" src="img/blog/thumb/thumb3.png" alt="">
-                    <ul class="thumb-info">
-                    <li><a href="#">Adam Colinge</a></li>
-                    <li><a href="#">Dec 15</a></li>
-                    </ul>
-                </div>
-                <div class="details mt-20">
-                    <a href="blog-single.html">
-                    <h6>Tennessee outback steakhouse the
-                        worker diagnosed</h6>
-                    </a>
-                </div>
-                </div>
-            </div>
-            </div>
-
-            <div class="single-sidebar-widget tag_cloud_widget">
-                <h4 class="single-sidebar-widget__title">Popular Post</h4>
-                <ul class="list">
-                <li>
-                    <a href="#">project</a>
-                </li>
-                <li>
-                    <a href="#">love</a>
-                </li>
-                <li>
-                    <a href="#">technology</a>
-                </li>
-                <li>
-                    <a href="#">travel</a>
-                </li>
-                <li>
-                    <a href="#">software</a>
-                </li>
-                <li>
-                    <a href="#">life style</a>
-                </li>
-                <li>
-                    <a href="#">design</a>
-                </li>
-                <li>
-                    <a href="#">illustration</a>
-                </li>
-                </ul>
-            </div>
-            </div>
-
-                        <!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
+           <!-- <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true"> -->
+  <!-- <div class="modal-dialog modal-dialog-centered" role="document"> -->
+    <!-- <div class="modal-content"> -->
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <h5 class="modal-title" id="exampleModalCenterTitle">SNS 업로드</h5>
+        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
-        </button>
+        </button> -->
       </div>
       <div class="modal-body">
-            <!-- <input type="file" id="8" ref="file" v-on:change="handleFileUpload()"/> -->
-
+            
+            <textarea class="input_text" type="text" v-model="title" placeholder="무슨생각을 하고 계시나요?" style="background-color:rgba(255, 255, 255, 0.973); "></textarea>    
             <div class="filebox preview-image">
-            <!-- <input class="upload-name" value="파일선택" disabled="disabled">
-            <label for="input-file">업로드</label> -->
-            <label for="input-file">업로드</label> 
-            <input type="file" id="input-file" class="upload-hidden" v-on:change="handleFileUpload()">
-            <!-- <input class="upload-name" value="파일선택"> -->
+                <hr>
+                <input type="file" id="input-file" ref="file" class="upload-hidden" v-on:change="handleFileUpload()">
+                <!-- <img type = "file" src="img/camera.png" style="width:20%;"  for="input-file"> -->
+                <label for="input-file" style="border:none; display:inline-block; width:30px;" img="img/camera.png">               
+                 <img type = "file" src="img/camera.png" style="width:100%; float:right;" >
+                </label>
+                <button type="button" class="btn btn-primary" v-on:click="CreateSns()" data-dismiss="modal" style="background-color:gray; border:none; float:right;">Save changes</button>
             </div>
 
-            <textarea class="input_text" type="text" v-model="title" placeholder="무슨생각을 하고 계시나요?"></textarea>    
-
-
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" v-on:click="CreateSns()" data-dismiss="modal">Save changes</button>
+      <!-- <div class="modal-footer"> -->
+    <!-- <div class="footer11"> -->
+        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
       </div>
     </div>
-  </div>
+  <!-- </div> -->
+        <!-- </div> -->
 
-</div>
-        </div>
+                       
 </template>
 
 
@@ -174,7 +53,7 @@
 <script>
 import axios from 'axios';
 export default {
-  name: 'Com_Sns_Right',
+    name: 'Com_Sns_Right',
   props: {
     msg: String
   },
@@ -199,8 +78,11 @@ export default {
             }
         }
         ).then(res=>{
+            
 
             this.datalist = res.data
+            this.file = ''
+            this.title = ''
             this.$router.push('/sns');
         })
         .catch(function(){
@@ -261,7 +143,6 @@ export default {
 <style scoped>
 .input_text{
     width: 100%;
-    margin-top: 5%;
 }
 
 /* imaged preview */
@@ -308,7 +189,7 @@ export default {
 }
 .filebox label {
     display: inline-block;
-    padding: 10px 20px;
+    /* padding: 10px 20px; */
     color: #999;
     vertical-align: middle;
     background-color: #fdfdfd;
@@ -322,7 +203,7 @@ export default {
   font-size:18px; 
   padding: 0 10px;
     vertical-align: middle;
-    background-color: #f5f5f5;
+    background-color: #d3cece;
   border: 1px solid #ebebeb;
   border-radius: 5px;
 
@@ -335,5 +216,4 @@ export default {
     background-color: beige;
 }
 </style>
-
 

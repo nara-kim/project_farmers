@@ -3,8 +3,8 @@
     <section class="blog-post-area section-margin mt-4">
       <div class ="container">
         <div class = "row">
-            <Com_Sns_Left/>
             <Com_Sns_Right/>
+            <Com_Sns_Left/>
         </div>
       </div>
     </section>

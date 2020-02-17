@@ -44,12 +44,12 @@
       </aside> <!-- col.// -->
       <aside class="col-md-4" style="padding:0">
         <div class="news_title_box" style="border:1px solid rgb(182, 180, 180);">
-          <div class="news_title_txt1">
-            <img onclick="fnMove('1')" src="img/news1.png" style="width:40%; margin-left: 35px; margin-top: 20px; opacity:0.5;">
+          <div class="news_title_txt1" onclick="fnMove('1')">
+            <img src="img/news1.png" style="width:40%; margin-left: 35px; margin-top: 20px; opacity:0.5;">
               <div style="text-align:center; color: gray; margin-top:5px;">
                 뉴스
               </div>
-            </div>
+          </div>
           <div class="news_title_txt2">
             <img src="img/cloudy1.png" style="width:40%; margin-left:35px; margin-top:15px; opacity:0.5">
             <div style="text-align:center; color: gray; margin-top:6px;">
@@ -150,9 +150,9 @@
 </style>
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
-<script>
-function fnMove(seq){
-        var offset = $("#div" + seq).offset();
-        $('html, body').animate({scrollTop : offset.top}, 400);
-    }
-</script>
+// <script>
+// function fnMove(seq){
+//         var offset = $("#div" + seq).offset();
+//         $('html, body').animate({scrollTop : offset.top}, 400);
+//     }
+// </script>

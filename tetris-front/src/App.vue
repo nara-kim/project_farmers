@@ -20,28 +20,28 @@
             <ul class="nav navbar-nav menu_nav justify-content-center">
               <li class="nav-item"><router-link to="/"><a class="nav-link">Home</a></router-link></li>
               <!-- <li class="nav-item"><a class ="nav-link"> | </a></li> -->
-              <li class="nav-item"><router-link to="/"><a class="nav-link">Weather</a></router-link></li>
+              <!-- <li class="nav-item"><router-link to="/"><a class="nav-link">Weather</a></router-link></li> -->
               <!-- <li class="nav-item"><a class ="nav-link"> | </a></li> -->
               <li class="nav-item"><router-link to="/sns"><a class="nav-link">Sns</a></router-link></li>
               <!-- <li class="nav-item"><a class ="nav-link"> | </a></li> -->
 
-              <li class="nav-item"><a class="nav-link">Category</a>
+              <!-- <li class="nav-item"><a class="nav-link">Category</a>
               <li class="nav-item submenu dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">Pages</a>
                 <ul class="dropdown-menu">
                   <li class="nav-item"><a class="nav-link" href="blog-details.html">Blog Details</a></li>
                 </ul>
-              </li>
+              </li> -->
               <li class="nav-item"><router-link to = "/board"><a class="nav-link">Board</a></router-link></li>            
               <!-- <li class="nav-item"><a class ="nav-link"> | </a></li> -->
 
             </ul>
-            <ul v-if="isAuthenticated" class="nav navbar-nav navbar-right navbar-social" style="width : 180px" >
+            <ul v-if="isAuthenticated" class="nav navbar-nav navbar-right navbar-social" style="width : 220px" >
               <li class ="nav-item"><a class="nav-link" style="font-size:large">{{userName}}</a></li>
               <li class="nav-item"><a class="nav-link" style="font-size:large" @click.prevent="logout">로그아웃</a></li>
             </ul>
-             <ul v-else class="nav navbar-nav navbar-right navbar-social" style="width : 180px">
+             <ul v-else class="nav navbar-nav navbar-right navbar-social" style="width : 220px">
               <li class ="nav-item"><router-link to="/login"><a class="nav-link" style="font-size:large;">로그인</a></router-link></li>
               <li class="nav-item"><router-link to="/signup"><a class="nav-link" style="font-size:large">회원가입</a></router-link></li>
             </ul> 

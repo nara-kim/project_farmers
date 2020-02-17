@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import NewsInfo, WeatherInfo, DustInfo, PriceInfo
+from .models import NewsInfo, WeatherInfo, DustInfo, PriceInfo, WeatherNoticeInfo
 class NewsSerializer(serializers.ModelSerializer):
     class Meta:
         model = NewsInfo
@@ -10,6 +10,12 @@ class WeatherSerializer(serializers.ModelSerializer):
     class Meta:
         model = WeatherInfo
         fields = ('id', 'loaction', 'sky', 'tc', 'tmin', 'tmx', 'timerelease')
+
+class WeatherNoticeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = WeatherNoticeInfo
+        fields = ('id', 'content', 'year', 'day', 'month', 'time')
+
 
 # class RainraderSerializer(serializers.ModelSerializer):
 #     class Meta:

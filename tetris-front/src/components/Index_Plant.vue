@@ -1,5 +1,5 @@
 <template>
-<div style="font-family: 'Jua', sans-serif; margin-top:30px;">
+<div style="font-family: 'Nanum Gothic', sans-serif; font-weight:bold; margin-top:30px;">
     병해충정보<hr>
     <div> 
         <select v-model="selected"> 
@@ -1205,20 +1205,25 @@ export default {
       buglist: [],
       selected: "",
       selected2: "",
-          }
+    }
   },
   methods: {
     buginfo() {
-        let formData = new FormData();
+        const formData = new FormData();
         formData.append('selected', this.selected)
         formData.append('selected2', this.selected2)
-        axios.get('http://127.0.0.1:8000/api/buginfo/', {
-            params:{
-                'selected': this.selected,
-                'selected2': this.selected2
-            }
-        }
-        )
+        console.log(this.selected)
+        console.log(this.selected2)
+        // axios
+        //     .get('http://127.0.0.1:8000/api/buginfo/', {
+        //         params:{
+        //             'selected': this.selected,
+        //             'selected2': this.selected2
+        //     }
+        // })
+        
+        axios
+            .post('http://127.0.0.1:8000/api/buginfo/',formData)
         .then( response => {
                     this.buglist = response.data,
                     this.buglist.발생환경 = this.buglist.발생환경.split('\n').join('<br />')

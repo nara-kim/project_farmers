@@ -26,9 +26,24 @@
         </div>
       </div>
      </section>
+        <button @click="fnMove('1')">div1로 이동</button>
+        <button @click="fnMove('2')">div2로 이동</button>
+        <button @click="fnMove('3')">div3로 이동</button>
+        <div id="div1" class="move">div1</div>
+        <div id="div2" class="move">div2</div>
+        <div id="div3" class="move">div3</div>
   </div>
 </template>
+<script src="https://code.jquery.com/jquery-3.2.1.js" 
+integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" 
+crossorigin="anonymous"></script>
 
+<script>
+    // function fnMove(seq){
+    //     var offset = $("#div" + seq).offset();
+    //     $('html, body').animate({scrollTop : offset.top}, 400);
+    // }
+</script>
 <script>
 // @ is an alias to /src
 import Index_News from '@/components/Index_News.vue'
@@ -52,6 +67,12 @@ export default {
     Index_Disease,
     Index_Plant,
   },
+  methods: {
+    fnMove(seq){
+        var offset = $("#div" + seq).offset();
+        $('html, body').animate({scrollTop : offset.top}, 400);
+    }
+  },
   updated() {
     this.$nextTick(function(){
 
@@ -64,4 +85,5 @@ export default {
 .right1{
   background-color: pink;
 }
+.move {margin-bottom:1000px;}
 </style>

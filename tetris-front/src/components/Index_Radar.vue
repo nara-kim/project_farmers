@@ -1,10 +1,10 @@
 <template>
 
-        <div class="widget-wrap" style="margin-top:40px;  font-family: 'Jua', sans-serif;">
+        <div class="widget-wrap" style="margin-top:40px; font-family: 'Nanum Gothic', sans-serif; font-weight:bold;">
           레이더<hr>
             <!-- <div class="single-sidebar-widget newsletter-widget"> -->
                
-                <img src="img/rainrader.gif" alt="" style="width:350px;">
+                <img src="img/rainrader.gif" alt="" style="width:100%;">
                 
             <!-- </div> -->
         </div>

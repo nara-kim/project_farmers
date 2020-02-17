@@ -1,9 +1,9 @@
 <template>
-    <div style=" font-family: 'Jua', sans-serif; margin-top:40px;">
+    <div style="font-family: 'Nanum Gothic', sans-serif; font-weight:bold; margin-top:40px;">
       가축질병 위기단계 <hr>
         <div class="thumb" v-for="(key, val) of Object.entries(sick)" v-bind:key="val">
           <a href="http://www.mafra.go.kr/FMD-AI/" target="_blank">
-            <img v-bind:src="`${key[1]}`" alt="">
+            <img v-bind:src="`${key[1]}`" alt="" style="width:100%">
           </a>
         </div>
     </div>

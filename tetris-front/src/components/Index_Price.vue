@@ -1,181 +1,701 @@
 <template>
+<div class="container my-4" style=" font-family: 'Jua', sans-serif;">
 
-<div>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <hr class="my-4">
 
-<div class="spe-cor"  style=" font-family: 'Jua', sans-serif;">
-    <div class="container">
-        <h5 style="text-align:center;">이달의 농업기술</h5>
-        <div class="row">
-            <div id="slider-1" class="carousel carousel-by-item slide" data-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="col-lg-2 col-md-3 col-sm-4 col-4">
-                            <button>
-                                
-                            </button>
-                            <img class="d-block img-fluid" src="img/난방비.png">
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="col-lg-2 col-md-3 col-sm-4 col-4">
-                            <img class="d-block img-fluid" src="img/과수화상병.png">
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="col-lg-2 col-md-3 col-sm-4 col-4">
-                            <img class="d-block img-fluid" src="img/배.png">
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="col-lg-2 col-md-3 col-sm-4 col-4">
-                            <img class="d-block img-fluid" src="img/국내산.png">
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="col-lg-2 col-md-3 col-sm-4 col-4">
-                            <img class="d-block img-fluid" src="img/농진청검은보리.png">
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="col-lg-2 col-md-3 col-sm-4 col-4">
-                            <img class="d-block img-fluid" src="img/생강.png">
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="col-lg-2 col-md-3 col-sm-4 col-4">
-                            <img class="d-block img-fluid" src="img/소화장애.png">
-                        </div>
-                    </div>
+    <!--Carousel Wrapper-->
+    <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
+
+
+      <!--Indicators-->
+      <ol class="carousel-indicators">
+        <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
+        <li data-target="#multi-item-example" data-slide-to="1"></li>
+        <li data-target="#multi-item-example" data-slide-to="2"></li>
+      </ol>
+      <!--/.Indicators-->
+
+      <!--Slides-->
+      <div class="carousel-inner" role="listbox">
+
+        <!--First slide-->
+        <div class="carousel-item active">
+
+          <div class="row">
+
+            <div class="col-md-2">
+              <div class="card mb-2">
+                <img class="card-img-top" src="img/환절기.png" alt="Card image cap">
+                <div class="card-body">
+                  <!-- <h4 class="card-title" style="text-align:center">난방비</h4> -->
+                  <p class="card-text">환절기 뿌리채소로 건강을 챙깁시다.</p>
+                  <!-- <a class="btn btn-primary" href = "https://www.nongsaro.go.kr/portal/ps/psv/psvr/psvre/curationDtl.ps?menuId=PS03352&srchCurationNo=1375&pageUnit=6&pageIndex=1&sEraInfo=&sSrchAll=&sKidofcomdtySeCode=&srchStr=&srchAll=Y" >자세히보기</a> -->
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter1">
+                    자세히보기
+                  </button>
+                  <!-- 모달 -->
                 </div>
-                <a class="carousel-control-prev" href="#slider-1" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#slider-1" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
+              </div>
             </div>
+			<!-- -------------------------------------------------------- -->
+
+            <div class="col-md-2 clearfix d-none d-md-block">
+              <div class="card mb-2">
+                <img class="card-img-top" src="img/과수화상병.png"
+                  alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">과수화상병 예방은 겨울철 과수원 관리부터</p>
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter2">
+                    자세히보기
+                  </button> 
+                </div>
+              </div>
+            </div>
+			<!-- -------------------------------------------------------- -->
+
+
+            <div class="col-md-2 clearfix d-none d-md-block">
+              <div class="card mb-2">
+                <img class="card-img-top" src="img/배.png"
+                  alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">빅데이터로 알아본 겨울철 건강 기능성 과일 - 배
+                    </p>
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter3">
+                    자세히보기
+                  </button>
+                </div>
+              </div>
+            </div>
+			<!-- -------------------------------------------------------- -->
+
+			<div class="col-md-2 clearfix d-none d-md-block">
+              <div class="card mb-2">
+                <img class="card-img-top" src="img/국내산.png"
+                  alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">국내산으로 둔갑한 중국산 농산물 구별법</p>
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter4">
+                    자세히보기
+                  </button>
+                </div>
+              </div>
+            </div>
+			<!-- -------------------------------------------------------- -->
+
+			<div class="col-md-2 clearfix d-none d-md-block">
+              <div class="card mb-2">
+                <img class="card-img-top" src="img/농진청검은보리.png"
+                  alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">맛은 더하고 카페인은 빼고-농진청 검은보리로 커피 개발</p>
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter5">
+                    자세히보기
+                  </button>                
+                  </div>
+              </div>
+            </div>
+			<!-- -------------------------------------------------------- -->
+
+			<div class="col-md-2 clearfix d-none d-md-block">
+              <div class="card mb-2">
+                <img class="card-img-top" src="img/생강.png"
+                  alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">빅데이터 분석을 통한 겨울철 식탁의 보약 - 생강</p>
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter6">
+                    자세히보기
+                  </button>
+                  </div>
+              </div>
+            </div>
+			<!-- -------------------------------------------------------- -->
+
+
+
+          </div>
+
         </div>
+        <!--/.First slide-->
+
+        <!--Second slide-->
+        <div class="carousel-item">
+
+          <div class="row">
+	
+            <div class="col-md-2">
+              <div class="card mb-2">
+                <img class="card-img-top" src="img/소화장애.png">
+                <div class="card-body">
+                  <p class="card-text">소화 장애에 특효인 약용작물 삽주(백출)</p>
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter7">
+                    자세히보기
+                  </button>                
+                  </div>
+              </div>
+            </div>
+			<!-- -------------------------------------------------------- -->
+
+
+            <div class="col-md-2 clearfix d-none d-md-block">
+              <div class="card mb-2">
+                <img class="card-img-top" src="img/토양검정.png">
+                <div class="card-body">
+                  <p class="card-text">토양검정은 과학영농의 시작입니다.</p>
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter8">
+                    자세히보기
+                  </button>                
+                  </div>
+              </div>
+            </div>
+		<!-- -------------------------------------------------------- -->
+
+
+            <div class="col-md-2 clearfix d-none d-md-block">
+              <div class="card mb-2">
+                <img class="card-img-top" src="img/잎채소.png"
+                  alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">추위 잘 견디는‘잎채소’로 겨울 식단 풍성하게</p>
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter9">
+                    자세히보기
+                  </button>                
+                  </div>
+              </div>
+            </div>
+		<!-- -------------------------------------------------------- -->
+
+		<div class="col-md-2 clearfix d-none d-md-block">
+              <div class="card mb-2">
+                <img class="card-img-top" src="img/난방비.png"
+                  alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">(꿀팁) 겨울철 시설하우스 난방비를 줄여 봐요</p>
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter10">
+                    자세히보기
+                  </button>                
+                  </div>
+              </div>
+            </div>
+		<!-- -------------------------------------------------------- -->
+
+		<div class="col-md-2 clearfix d-none d-md-block">
+              <div class="card mb-2">
+                <img class="card-img-top" src="img/농기계.png"
+                  alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">농기계 수명 겨울철 관리가 좌우</p>
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter11">
+                    자세히보기
+                  </button>                
+                  </div>
+              </div>
+            </div>
+		<!-- -------------------------------------------------------- -->
+
+		<div class="col-md-2 clearfix d-none d-md-block">
+              <div class="card mb-2">
+                <img class="card-img-top" src="img/농업인.png"
+                  alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">올 농사의 첫걸음 새해 농업인 실용교육</p>
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter12">
+                    자세히보기
+                  </button>                
+                  </div>
+              </div>
+            </div>
+		<!-- -------------------------------------------------------- -->
+
+          </div>
+
+        </div>
+        <!--/.Second slide-->
+
+        <!--Third slide-->
+        <div class="carousel-item">
+
+          <div class="row">
+		
+            <div class="col-md-2">
+              <div class="card mb-2">
+                <img class="card-img-top" src="img/소.png"
+                  alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">소·돼지·닭의 건강한 겨울나기</p>
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter13">
+                    자세히보기
+                  </button>                
+                  </div>
+              </div>
+            </div>
+		<!-- -------------------------------------------------------- -->
+
+
+            <div class="col-md-2 clearfix d-none d-md-block">
+              <div class="card mb-2">
+                <img class="card-img-top" src="img/소득조사.png"
+                  alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">농산물 소득조사 결과 가장 소득이 높은 작물은?</p>
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter14">
+                    자세히보기
+                  </button>                
+                  </div>
+              </div>
+            </div>
+		<!-- -------------------------------------------------------- -->
+
+
+            <div class="col-md-2 clearfix d-none d-md-block">
+              <div class="card mb-2">
+                <img class="card-img-top" src="img/시래기.png"
+                  alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">겨울철 식탁 위의 건강지킴이 “시래기”</p>
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter15">
+                    자세히보기
+                  </button>                
+                  </div>
+              </div>
+            </div>
+		<!-- -------------------------------------------------------- -->
+
+		<div class="col-md-2 clearfix d-none d-md-block">
+              <div class="card mb-2">
+                <img class="card-img-top" src="img/시설재배지.png"
+                  alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">시설재배지 염류장해 고민 킬레이트제로 해결전체목록</p>
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter16">
+                    자세히보기
+                  </button>                
+                  </div>
+              </div>
+            </div>
+		<!-- -------------------------------------------------------- -->
+
+		<div class="col-md-2 clearfix d-none d-md-block">
+              <div class="card mb-2">
+                <img class="card-img-top" src="img/초보농업인.png"
+                  alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">(꿀팁) 초보 창업 농업인이 스마트팜 사장님이 되는 비결</p>
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter17">
+                    자세히보기
+                  </button>                
+                  </div>
+              </div>
+            </div>
+		<!-- -------------------------------------------------------- -->
+
+		<div class="col-md-2 clearfix d-none d-md-block">
+              <div class="card mb-2">
+                <img class="card-img-top" src="img/토마토.png"
+                  alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">겨울철 시설토마토를 말려 죽이는 잎마름역병</p>
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter18">
+                    자세히보기
+                  </button>                
+                  </div>
+              </div>
+            </div>
+		<!-- -------------------------------------------------------- -->	
+
+          </div>
+
+        </div>
+        <!--/.Third slide-->
+
+      </div>
+      <!--/.Slides-->
+
     </div>
-</div>
-</div>
+    <!--/.Carousel Wrapper-->
+<!--Controls-->
+      <div class="controls-top" style="text-align:center">
+        <a class="btn-floating" href="#multi-item-example" data-slide="prev"><img src="img/left-arrow.png" class="fa fa-chevron-left" style="width:5%;"></a>
+        <a class="btn-floating" href="#multi-item-example" data-slide="next"><img  src="img/right-arrow.png" class="fa fa-chevron-right" style="width:5%;"></a>
+      </div>
+      <!--/.Controls-->
+      
+      <!-- 모달 -->
+      <div class="modal fade bd-example-modal-lg"  id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabe" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <img src="img/환절기2.jpg">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div> 
+      <!-- 모달end -->
+      <!-- 모달 -->
+      <div class="modal fade bd-example-modal-lg"  id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabe" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <img src="img/과수화상병2.jpg">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div> 
+      <!-- 모달end -->
+      <!-- 모달 -->
+      <div class="modal fade bd-example-modal-lg"  id="exampleModalCenter3" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabe" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <img src="img/배2.jpg">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div> 
+      <!-- 모달end -->
+      <!-- 모달 -->
+      <div class="modal fade bd-example-modal-lg"  id="exampleModalCenter4" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabe" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <img src="img/중국산농산물.jpg">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div> 
+      <!-- 모달end -->
+      <!-- 모달 -->
+      <div class="modal fade bd-example-modal-lg"  id="exampleModalCenter5" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabe" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <img src="img/커피2.jpg">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div> 
+      <!-- 모달end -->
+      <!-- 모달 -->
+      <div class="modal fade bd-example-modal-lg"  id="exampleModalCenter6" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabe" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <img src="img/생강.jpg">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div> 
+      <!-- 모달end -->
+      <!-- 모달 -->
+      <div class="modal fade bd-example-modal-lg"  id="exampleModalCenter7" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabe" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <img src="img/소화장애2.jpg">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div> 
+      <!-- 모달end -->
+      <!-- 모달 -->
+      <div class="modal fade bd-example-modal-lg"  id="exampleModalCenter8" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabe" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <img src="img/토양검정2.jpg">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div> 
+      <!-- 모달end -->
+      <!-- 모달 -->
+      <div class="modal fade bd-example-modal-lg"  id="exampleModalCenter9" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabe" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <img src="img/잎채소2.jpg">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div> 
+      <!-- 모달end -->
+      <!-- 모달 -->
+      <div class="modal fade bd-example-modal-lg"  id="exampleModalCenter10" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabe" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <img src="img/난방비2.jpg">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div> 
+      <!-- 모달end -->
+      <!-- 모달 -->
+      <div class="modal fade bd-example-modal-lg"  id="exampleModalCenter11" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabe" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <img src="img/농기계2.jpg">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div> 
+      <!-- 모달end -->
+      <!-- 모달 -->
+      <div class="modal fade bd-example-modal-lg"  id="exampleModalCenter12" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabe" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <img src="img/농업인2.jpg">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div> 
+      <!-- 모달end -->
+      <!-- 모달 -->
+      <div class="modal fade bd-example-modal-lg"  id="exampleModalCenter13" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabe" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <img src="img/소2.jpg">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div> 
+      <!-- 모달end -->
+      <!-- 모달 -->
+      <div class="modal fade bd-example-modal-lg"  id="exampleModalCenter14" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabe" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <img src="img/소득조사2.jpg">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div> 
+      <!-- 모달end -->
+      <!-- 모달 -->
+      <div class="modal fade bd-example-modal-lg"  id="exampleModalCenter15" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabe" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <img src="img/시래기2.jpg">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div> 
+      <!-- 모달end -->
+      <!-- 모달 -->
+      <div class="modal fade bd-example-modal-lg"  id="exampleModalCenter16" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabe" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <img src="img/시설재배지2.jpg">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div> 
+      <!-- 모달end -->
+      <!-- 모달 -->
+      <div class="modal fade bd-example-modal-lg"  id="exampleModalCenter17" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabe" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <img src="img/초보창업2.jpg">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div> 
+      <!-- 모달end -->
+      <!-- 모달 -->
+      <div class="modal fade bd-example-modal-lg"  id="exampleModalCenter18" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabe" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <img src="img/토마토2.jpg">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div> 
+      <!-- 모달end -->
+  </div>
 </template>
 
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-
-<script>
-var mainFunction = function(options) {
-    var vars = {
-        id: '',
-        bootsGrid: ["col-md-1", "col-md-2", "col-md-3", "col-md-4", "col-md-6", "col-md-12", "col-sm-1", "col-sm-2", "col-sm-3", "col-sm-4", "col-sm-6", "col-sm-12", "col-lg-1", "col-lg-2", "col-lg-3", "col-lg-4", "col-lg-6", "col-lg-12", "col-xs-1", "col-xs-2", "col-xs-3", "col-xs-4", "col-xs-6", "col-xs-12", "col-xl-1", "col-xl-2", "col-xl-3", "col-xl-4", "col-xl-6", "col-xl-12"],
-        breakPoint : [1200, 992, 768, 567, 0]
-    }
-    var root = this;
-
-    construct = function(v, options) {
-        $.extend(v, options);
-    }
-    this.GetUnique = function(e) {
-        var l = [],
-            s = temp_c = [],
-            t = vars.bootsGrid;
-        $(e).find('.carousel-item').each(function() {
-            for (var l = $(this).find('div').first().attr("class").split(/\s+/), t = 0; t < l.length; t++) s.push(l[t])
-        });
-        for (var c = 0; c < s.length; c++) temp_c = s[c].split("-"), 2 == temp_c.length && (temp_c.push(""), temp_c[2] = temp_c[1], temp_c[1] = "xs", s[c] = temp_c.join("-")), -1 == $.inArray(s[c], l) && $.inArray(s[c], t) && l.push(s[c]);
-        setcss(l, '#' + vars.id + ' .carousel-item', '#' + vars.id + ' .carousel-inner')
-        return l
-    }
-    setcss = function(e, l, s) {
-      var t = [];
-        $.each(vars.breakPoint,function(i,e){
-         t.push("");
-        })
-        for (var c = d = f = g = 0, o = [], a = 0; a < e.length; a++) {
-            var i = e[a].split("-");
-            if (3 == i.length) {
-                switch (i[1]) {
-                    case "xl":
-                        d = 0;
-                        break;
-                    case "lg":
-                        d = 1;
-                        break;
-                    case "md":
-                        d = 2;
-                        break;
-                    case "sm":
-                        d = 3;
-                        break;
-                    case "xs":
-                        d = 4
-                }
-                t[d] = i[2]
-            }
-        }
-        var slider = document.getElementById(vars.id); 
-        var style = document.createElement("STYLE");
-        slider.insertBefore(style, slider.childNodes[0]).id=vars.id+'-style';
-        var style = $("#"+vars.id+'-style');
-        for (var n = 0; n < t.length; n++)
-            if ("" !== t[n]) {
-                if (0 === c && (c = 12 / t[n]),
-                    f = 12 / t[n],
-                    g = 100 / f,
-                    a = s + " > .carousel-item.active.carousel-item-right," + s + " > .carousel-item.carousel-item-next {-ms-transform: translate3d(" + g + "%, 0, 0);-o-transform: translate3d(" + g + "%, 0, 0);-moz-transform: translate3d(" + g + "%, 0, 0);-webkit-transform: translate3d(" + g + "%, 0, 0);transform: translate3d(" + g + ", 0, 0);left: 0;}" + s + " > .carousel-item.active.carousel-item-left," + s + " > .carousel-item.carousel-item-prev {-webkit-transform: translate3d(-" + g + "%, 0, 0);transform: translate3d(-" + g + "%, 0, 0);left: 0;}" + s + " > .carousel-item.carousel-item-left, " + s + " > .carousel-item.carousel-item-prev.carousel-item-right, " + s + " > .carousel-item.active {-webkit-transform: translate3d(0, 0, 0);transform: translate3d(0, 0, 0);left: 0;}", f > 1) {
-                        
-                    for (k = 0; k < f - 1; k++) {
-                        o.push(l + " .cloneditem-" + k);
-                    }
-                    o.length && (a = a + o.join(",") + "{display: block;}"), o = []
-                }
-                0 !== vars.breakPoint[n] && (a = "@media all and (min-width: " + vars.breakPoint[n] + "px){" + a + "}"),
-                    style.prepend(a)
-            }
-        $(l).each(function() {
-            for (var e = $(this), l = 0; l < c - 1; l++) {
-                (e = e.next()).length || (e = $(this).siblings(":first")), e.children(":first-child").clone().addClass("cloneditem-" + l).appendTo($(this))
-            }
-        })
-    }
-    construct(vars, options);
-}
-$.fn.responsiveCarousel = function(option) {
-    $(this).each(function() {
-        var _root = this;
-        option = { id: $(this).attr('id') }
-        var main = new mainFunction(option);
-        main.GetUnique(_root);
-    })
-};
-//Use Different Slider IDs for multiple slider
-$(document).ready(function() {
-    $('#slider-1').responsiveCarousel();
-    $('#slider-2').responsiveCarousel();
-});
-</script>
-
 <style scoped>
-@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
-/*================================================*/
-@import url('https://fonts.googleapis.com/css?family=Roboto');
-.carousel{
-    width: 100%;
+.btn.btn-primary{
+	text-align:center;
+	background-color: rgb(218, 216, 216);
+	border: none;
+	color:black;
+	font-family: 'Jua', sans-serif;
 }
-.carousel-item > div {
-  float: left;
-}
-.carousel-by-item [class*="cloneditem-"] {
-  display: none;
-}
-.price{
-   margin-bottom: 5%;
-}
-.spe-cor{
-    height: 180px;
-    background-color: rgb(235, 232, 232);
+.card-text{
+	overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical;
 }
 </style>

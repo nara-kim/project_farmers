@@ -152,3 +152,9 @@ JWT_AUTH = {
 CORS_ORIGIN_ALLOW_ALL = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+#외부에서 사용자가 접근이 가능하도록 하는 주소
+MEDIA_URL = '/'
+
+#파일이 저장된 주소
+MEDIA_ROOT = os.path.join(BASE_DIR)

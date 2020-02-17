@@ -7,7 +7,7 @@
 <!-- 시작 -->
    <!-- <div class="col-lg-8" style="margin-top:60px; font-family: 'Jua', sans-serif;"> -->
        <!-- 뉴스<hr> -->
-   <section id="team" class="pb-5"  style=" font-family: 'Jua', sans-serif;">
+   <section id="team" class="pb-5"  style="font-family: 'Nanum Gothic', sans-serif; font-weight:bold;">
        뉴스 <hr>
     <div class="container">
         <div class="row" >
@@ -251,6 +251,6 @@ section .section-title {
     display: -webkit-box;
     -webkit-line-clamp: 2; 
     -webkit-box-orient: vertical;
-    font-family: 'Jua', sans-serif;
+    font-family: 'Nanum Gothic', sans-serif;
 }
 </style>

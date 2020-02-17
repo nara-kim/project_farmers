@@ -20,6 +20,13 @@ class WeatherInfo(models.Model):
 # class RainraderInfo(models.Model):
 #     raderimg = models.TextField()
 
+class WeatherNoticeInfo(models.Model):
+    content = models.TextField()
+    year = models.TextField()
+    month = models.TextField()
+    day = models.TextField()
+    time = models.TextField()
+
 
 class DustInfo(models.Model):
     # 순서대로
@@ -34,6 +41,16 @@ class DustInfo(models.Model):
     no2Value = models.TextField()  
     so2Value = models.TextField() 
     khaiValue = models.TextField()
+
+class BugInfo(models.Model):
+    cropname = models.CharField(max_length=10)
+    sickname = models.CharField(max_length=10)
+    image = models.TextField()
+    symptom = models.TextField()
+    condition = models.TextField()
+    prevent = models.TextField()
+
+
 
 class PriceInfo(models.Model):
     test = models.TextField()

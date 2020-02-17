@@ -1,6 +1,5 @@
 <template>
-  <div class="col-lg-6 offset-lg-1">
-
+  <div class="col-lg-6 offset-lg-3">
     <div class="cardbox shadow-lg bg-white">
         <div class="cardbox-heading">
             <!-- START dropdown-->
@@ -24,6 +23,7 @@
                     <small><span><i class="icon ion-md-time"></i> 10 hours ago</span></small>
                 </div>
                 </div><!--/ media -->
+
             </div><!--/ cardbox-heading -->
         
         <div class="cardbox-item">
@@ -41,7 +41,7 @@
                 <li><a href="#"><img src="http://www.themashabrand.com/templates/bootsnipp/post/assets/img/users/5.jpg" class="img-fluid rounded-circle" alt="User"></a></li>
                 <li><a href="#"><img src="http://www.themashabrand.com/templates/bootsnipp/post/assets/img/users/2.jpg" class="img-fluid rounded-circle" alt="User"></a></li>
                 <li><a><span>242 Likes</span></a></li>
-            </ul>			   
+            </ul>            
         </div><!--/ cardbox-base -->
         <div class="cardbox-comments">
             <span class="comment-avatar float-left">
@@ -49,81 +49,39 @@
             </span>
           <div class="search">
               <input placeholder="Write a comment" type="text">
-              <button><i class="fa fa-camera"></i></button>
+              <!-- <button><i class="fa fa-camera"></i></button> -->
+              <button><img class="imgbutton" src="img/send.png"></button>
           </div><!--/. Search -->
-        </div><!--/ cardbox-like -->			  
+        </div><!--/ cardbox-like -->           
     </div><!--/ cardbox -->
 
-
-    <div class="cardbox shadow-lg bg-white" v-for="sns of sns_list" v-bind:key="sns.id">
-        <div class="cardbox-heading">
-            <!-- START dropdown-->
-            <div class="dropdown float-right">
-                <button class="btn btn-flat btn-flat-icon" type="button" data-toggle="dropdown" aria-expanded="false">
-                    <em class="fa fa-ellipsis-h"></em>
-                </button>
-                <div class="dropdown-menu dropdown-scale dropdown-menu-right" role="menu" style="position: absolute; transform: translate3d(-136px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
-                    <a class="dropdown-item" href="#">Hide post</a>
-                    <a class="dropdown-item" href="#">Stop following</a>
-                    <a class="dropdown-item" href="#">Report</a>
-                </div>
-            </div><!--/ dropdown -->
-            <div class="media m-0">
-              <div class="d-flex mr-3">
-                  <a href=""><img class="img-fluid rounded-circle" src="http://www.themashabrand.com/templates/bootsnipp/post/assets/img/users/4.jpg" alt="User"></a>
-              </div>
-              <div class="media-body">
-                  <p class="m-0">{{sns.user}}</p>
-                  <small><span><i class="icon ion-md-pin"></i> Nairobi, Kenya</span></small>
-                  <small><span><i class="icon ion-md-time"></i> 10 hours ago</span></small>
-              </div>
-            </div><!--/ media -->
-          </div><!--/ cardbox-heading -->
-        
-        <div class="cardbox-item">
-            <img class="img-fluid" v-bind:src="`http://127.0.0.1:8000${sns.image}/`" alt="Image" style="width:100%;">
-        </div><!--/ cardbox-item -->
-        <div class="cardbox-base">
-            <ul class="float-right">
-                <li><a><i class="fa fa-comments"></i></a></li>
-                <li><a><em class="mr-5">12</em></a></li>
-            </ul>
-            <ul>
-                <li><a><i class="fa fa-thumbs-up"></i></a></li>
-                <li><a href="#"><img src="http://www.themashabrand.com/templates/bootsnipp/post/assets/img/users/3.jpeg" class="img-fluid rounded-circle" alt="User"></a></li>
-                <li><a href="#"><img src="http://www.themashabrand.com/templates/bootsnipp/post/assets/img/users/1.jpg" class="img-fluid rounded-circle" alt="User"></a></li>
-                <li><a href="#"><img src="http://www.themashabrand.com/templates/bootsnipp/post/assets/img/users/5.jpg" class="img-fluid rounded-circle" alt="User"></a></li>
-                <li><a href="#"><img src="http://www.themashabrand.com/templates/bootsnipp/post/assets/img/users/2.jpg" class="img-fluid rounded-circle" alt="User"></a></li>
-                <li><a><span>242 Likes</span></a></li>
-            </ul>			   
-        </div><!--/ cardbox-base -->
-        <div class="cardbox-comments">
-            <span class="comment-avatar float-left">
-                <a href=""><img class="rounded-circle" src="http://www.themashabrand.com/templates/bootsnipp/post/assets/img/users/6.jpg" alt="..."></a>                            
-            </span>
-          <div class="search">
-            <form action="">
-              <input placeholder="Write a comment" type="text">
-              <button><i class="fa fa-camera"></i></button>
-            </form>
-          </div><!--/. Search -->
-        </div><!--/ cardbox-like -->			  
-    </div><!--/ cardbox -->
+    <Sns_List v-for="sns in sns_list" :key="sns.id" :sns='sns'/>
+    
 </div>
 </template>
 
 <script>
-import axios from 'axios';
+import axios from 'axios'
+import Sns_List from './Sns_List.vue'
+
 export default {
   name: 'Com_Sns_Left',
-  props: {
-    msg: String
-  },
   data(){
     return {
-      sns_list: []
+      sns_list: [],
     }
   },
+  components:{
+    Sns_List,
+  },
+
+  // watch:{
+  //   sns_list:{
+  //     handler(){
+  //       this.getSns();
+  //     }
+  //   }
+  // },
   methods: {
     getSns(){
       axios
@@ -132,12 +90,17 @@ export default {
           console.log('서옹???')
           // const {sns_set} = res.data;
           // this.sns_list = sns_set;
+
           this.sns_list = res.data;
           console.log('성공한듯??!!했냐냐냐냐!!!ㄴ???')
         })
         .catch(err => console.log(err))
-    }
+    },
+
   },
+  // updated(){
+  //   this.getSns()
+  // },
   mounted(){
     this.getSns();
   }
@@ -191,7 +154,7 @@ text-align: center;
   left: 13px !important;  
 }
 .cardbox .float-right a:hover{
-  background: #f4f4f4 !important;	
+  background: #f4f4f4 !important;   
 }
 .cardbox .float-right a.dropdown-item {
   display: block;
@@ -236,13 +199,13 @@ text-align: center;
   padding: .4rem !important;
 }
 .media-body p{
-  font-family: 'Rokkitt', serif;	
+  font-family: 'Rokkitt', serif;   
   font-weight: 500 !important;
   font-size: 14px;
   color: #88898a;
 }
 .media-body small span{
-  font-family: 'Rokkitt', serif;	
+  font-family: 'Rokkitt', serif;   
   font-size: 12px;
   color: #aaa;
   margin-right: 10px;
@@ -262,10 +225,10 @@ text-align: center;
     display: block;
     max-width: 100%;
     height: auto;
-}	
+}   
 .fw {
     width: 100% !important;
-	height: auto;
+   height: auto;
 }
 
 
@@ -274,11 +237,11 @@ text-align: center;
 ---------------------------------- */
 .cardbox-base{
  border-bottom: 2px solid #f4f4f4;
-}	
+}   
 .cardbox-base ul{
  margin: 10px 0px 10px 15px!important; 
  padding: 10px !important;
- font-size: 0px;	
+ font-size: 0px;   
   display: inline-block;
 }
 .cardbox-base li {
@@ -327,7 +290,7 @@ text-align: center;
 ---------------------------------- */
 .cardbox-comments{
   padding: 10px 40px 20px 50px !important;
-  font-size: 0px;	
+  font-size: 0px;   
   text-align: center;
   display: inline-block;
 }
@@ -347,7 +310,7 @@ text-align: center;
  position: relative;
  top: -40px;
  margin-bottom: -40px;
- border: 2px solid #f4f4f4;	
+ border: 2px solid #f4f4f4;   
  width: 100%;
  overflow: hidden;
 }
@@ -385,6 +348,9 @@ text-align: center;
  line-height: 30px;
  display: block;
 }
+.imgbutton{
+  width: 8%; 
+}
 
 
 /* ------------------------------- */
@@ -400,4 +366,5 @@ text-align: center;
  font-size: 16px;
  color: #8d8d8d;
 }
+
 </style>
