@@ -1,5 +1,5 @@
 <template>
-<div style="font-family: 'Nanum Gothic', sans-serif; font-weight:bold; margin-top:30px;">
+<div style="font-family: 'Jua', sans-serif; margin-top:30px;">
     병해충정보<hr>
     <div> 
         <select v-model="selected"> 
@@ -52,7 +52,91 @@
             <option>모란</option>
             <option>몬스테라</option>
             <option>무</option>
-            <option>마</option>
+            <option>무궁화</option>
+            <option>무화과</option>
+            <option>문주란</option>
+            <option>미나리</option>
+            <option>밤</option>
+            <option>배</option>
+            <option>배추</option>
+            <option>백일홍</option>
+            <option>백합(나리)</option>
+            <option>복숭아</option>
+            <option>봉숭아(봉선화)</option>
+            <option>부추</option>
+            <option>붓꽃</option>
+            <option>블루베리</option>
+            <option>비파</option>
+            <option>사과</option>
+            <option>산수유</option>
+            <option>살구</option>
+            <option>삽주</option>
+            <option>상추</option>
+            <option>샐러리</option>
+            <option>샐비어</option>
+            <option>생강</option>
+            <option>선인장</option>
+            <option>소철</option>
+            <option>수국</option>
+            <option>수박</option>
+            <option>순무</option>
+            <option>쉐프렐라</option>
+            <option>스파티필럼</option>
+            <option>시금치</option>
+            <option>시써스</option>
+            <option>식나무</option>
+            <option>심비디움</option>
+            <option>쑥갓</option>
+            <option>아레카야자</option>
+            <option>아마릴리스</option>
+            <option>아스파라가스</option>
+            <option>아스파라거스</option>
+            <option>아욱</option>
+            <option>아이비(헤데라)</option>
+            <option>안개꽃</option>
+            <option>앵두</option>
+            <option>양배추</option>
+            <option>양파</option>
+            <option>오미자</option>
+            <option>오이</option>
+            <option>옥수수</option>
+            <option>우엉</option>
+            <option>유자</option>
+            <option>자두</option>
+            <option>작약</option>
+            <option>장미</option>
+            <option>제라늄</option>
+            <option>종려죽</option>
+            <option>지치</option>
+            <option>지황</option>
+            <option>진달래</option>
+            <option>참다래(키위,다래)</option>
+            <option>참당귀(당귀)</option>
+            <option>참외</option>
+            <option>천궁</option>
+            <option>천일홍</option>
+            <option>치자나무</option>
+            <option>카네이션</option>
+            <option>칸나</option>
+            <option>케일</option>
+            <option>켄차야자</option>
+            <option>콩</option>
+            <option>클레로덴드럼</option>
+            <option>토마토</option>
+            <option>파슬리</option>
+            <option>팔손이</option>
+            <option>패랭이꽃</option>
+            <option>팬지</option>
+            <option>페튜니아</option>
+            <option>포도</option>
+            <option>피닉스야자</option>
+            <option>해바라기</option>
+            <option>협죽도</option>
+            <option>호두나무</option>
+            <option>호박</option>
+            <option>황기</option>
+
+
         </select> 
         <select v-model="selected2" v-if="`${selected}` === '가지'">
             <option disabled value="">병 명</option> 
@@ -1018,7 +1102,7 @@
              <option>새삼</option>
              <option>세균성점무늬병</option>
         </select>
-        <select v-model="selected2" v-else-if="`${selected}` === '클레로덴드럼'">
+        <!-- <select v-model="selected2" v-else-if="`${selected}` === '클레로덴드럼'">
             <option disabled value="">병 명</option>
              <option>탄저병</option>
              <option>괴저모자이크병</option>
@@ -1030,7 +1114,7 @@
              <option>불마름병</option>
              <option>새삼</option>
              <option>세균성점무늬병</option>
-        </select>
+        </select> -->
         <select v-model="selected2" v-else-if="`${selected}` === '클레로덴드럼'">
             <option disabled value="">병 명</option>
              <option>탄저병</option>
@@ -1144,10 +1228,11 @@
         <button v-else disabled>선택</button>
     
     </div>
-    
+ 
+
    <div>
     <div class="hovereffect">
-        <img class="img-responsive"  v-bind:src="`${buglist.이미지}`" alt="">
+        <img class="img-responsive"  v-bind:src="`${buglist.image}`" alt="">
             <div class="overlay">
                 <h2></h2>
             <h2>
@@ -1157,33 +1242,34 @@
     </div>
     </div>
     <!-- Modal -->
+    
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">식물명:{{buglist.작물명}}</h5>
+            <h5 class="modal-title" id="exampleModalLabel">식물명:{{buglist.crop}}</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
             </button>
         </div>
         <div class="modal-body">
-            <h3>{{buglist.병명}}</h3>
-            <img  v-bind:src="`${buglist.이미지}`" style="width:200px;" alt="">
+            <h3>{{buglist.sick}}</h3>
+            <img  v-bind:src="`${buglist.image}`" style="width:200px;" alt="">
         </div>
         <hr>
         <div class="modal-body">
             <h4>발생환경</h4>
-            <div v-html="buglist.발생환경"></div>
+            <div v-html="buglist.condition"></div>
         </div>
         <hr>
         <div class="modal-body">
             <h4>증상</h4>
-            <div v-html="buglist.증상"></div>
+            <div v-html="buglist.symptom"></div>
         </div>
         <hr>
         <div class="modal-body">
             <h4>방제방법</h4>
-            <div v-html="buglist.방제방법"></div>
+            <div v-html="buglist.prevent"></div>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -1204,30 +1290,20 @@ export default {
       buglist: [],
       selected: "",
       selected2: "",
-    }
+          }
   },
   methods: {
     buginfo() {
-        const formData = new FormData();
+        let formData = new FormData();
         formData.append('selected', this.selected)
         formData.append('selected2', this.selected2)
-        console.log(this.selected)
-        console.log(this.selected2)
-        // axios
-        //     .get('http://127.0.0.1:8000/api/buginfo/', {
-        //         params:{
-        //             'selected': this.selected,
-        //             'selected2': this.selected2
-        //     }
-        // })
-        
-        axios
-            .post('http://127.0.0.1:8000/api/buginfo/',formData)
+        axios.post('http://15.165.77.204:8000/api/buginfo/', formData)
         .then( response => {
-                    this.buglist = response.data,
-                    this.buglist.발생환경 = this.buglist.발생환경.split('\n').join('<br />')
-                    this.buglist.방제방법 = this.buglist.방제방법.split('\n').join('<br />')
-                    this.buglist.증상 = this.buglist.증상.split('\n').join('<br />')
+                    this.buglist = response.data
+                    console.log(this.buglist)
+                    this.buglist.condition = this.buglist.condition.split('\n').join('<br />')
+                    this.buglist.prevent = this.buglist.prevent.split('\n').join('<br />')
+                    this.buglist.symptom = this.buglist.symptom.split('\n').join('<br />')
         })
         .catch( err => {
                     console.log(err)
