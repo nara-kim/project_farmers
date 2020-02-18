@@ -50,13 +50,13 @@
                 뉴스
               </div>
           </div>
-          <div class="news_title_txt2">
+          <div class="news_title_txt2" onclick="fnMove('3')"> 
             <img src="img/cloudy1.png" style="width:40%; margin-left:35px; margin-top:15px; opacity:0.5">
             <div style="text-align:center; color: gray; margin-top:6px;">
                 날씨
               </div>
             </div>
-          <div class="news_title_txt3">
+          <div class="news_title_txt3" onclick="fnMove('2')">
             <img src="img/bacteria.png" style="width:38%; margin-left:35px; margin-top:20px; opacity:0.4">
             <div style="text-align:center; color: gray; margin-top:6px;">
                 가축질병
@@ -65,19 +65,19 @@
         </div>
 
         <div class="news_title_box" style="border-left:1px solid rgb(182, 180, 180); border-right:1px solid rgb(182, 180, 180); border-bottom:1px solid rgb(182, 180, 180); height:115.5px;">
-          <div class = "news_title_txt1">
+          <div class = "news_title_txt1" onclick="fnMove('4')">
             <img src="img/bug.png" style="width:40%; margin-left:38px; margin-top:20px; opacity:0.5">
               <div style="text-align:center; color: gray; margin-top:6px;">
                 병해충
               </div>
           </div>
-          <div class="news_title_txt2">
+          <div class="news_title_txt2" onclick="fnMove('5')"> 
               <img src="img/dust.png" style="width:40%; margin-left:38px; margin-top:20px; opacity:0.5">
                 <div style="text-align:center; color: gray; margin-top:6px;">
                   미세먼지
                 </div>
           </div>
-          <div class="news_title_txt3">
+          <div class="news_title_txt3" onclick="fnMove('6')">
               <img src="img/radar.png" style="width:40%; margin-left:38px; margin-top:20px; opacity:0.5">
                 <div style="text-align:center; color: gray; margin-top:6px;">
                 강수실황
@@ -87,25 +87,33 @@
         </div>
 
         <div class="news_title_box" style="border-left:1px solid rgb(182, 180, 180); border-right:1px solid rgb(182, 180, 180); border-bottom:1px solid rgb(182, 180, 180); height:115px">
-          <div class="news_title_txt1">
+          <div class="news_title_txt1" onclick="fnMove('7')">
+            <a href="#">
              <img src="img/price.png" style="width:40%; margin-left:38px; margin-top:20px; opacity:0.5">
                 <div style="text-align:center; color: gray; margin-top:6px;">
                 시세
                 </div>
+            </a>
           </div>
           <div class="news_title_txt2">
              <img src="img/help.png" style="width:40%; margin-left:38px; margin-top:20px; opacity:0.5">
                 <div style="text-align:center; color: gray; margin-top:6px;">
+                  <router-link to="/board" style="text-decoration:none; color : gray; font-weight:900;">
                 일손
+                  </router-link>
                 </div>
           </div>
           <div class="news_title_txt3">
+            <div id = "scroll1">
              <img src="img/SNS.png" style="width:40%; margin-left:38px; margin-top:20px; opacity:0.5">
                 <div style="text-align:center; color: gray; margin-top:6px;">
+                  <router-link to="/sns" style="text-decoration:none; color : gray; font-weight:900;">
+
                 오늘의땀
-                </div>
+                  </router-link>
+              </div>
           </div>
-        
+          </div>
         </div>
 
       </aside>
@@ -123,6 +131,18 @@
 .news_title_box{
     /* border: 1px solid black;  */
     height: 33.3%;
+}
+.news_title_txt1:hover{
+  /* background-color: black; */
+  opacity: 0.5;
+}
+.news_title_txt2:hover{
+  /* background-color: black; */
+  opacity: 0.5;
+}
+.news_title_txt3:hover{
+  /* background-color: black; */
+  opacity: 0.5;
 }
 .news_title_txt1{
   float:left;
@@ -149,10 +169,4 @@
 }
 </style>
 
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
-// <script>
-// function fnMove(seq){
-//         var offset = $("#div" + seq).offset();
-//         $('html, body').animate({scrollTop : offset.top}, 400);
-//     }
-// </script>
+ 

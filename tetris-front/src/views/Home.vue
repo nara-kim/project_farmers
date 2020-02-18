@@ -8,8 +8,11 @@
              <div class="col-lg-8" style="margin-top:60px; font-family: 'Jua', sans-serif; ">
               <Index_News/>                    
               <Index_Weather/>
-            </div>
+             </div>
+          <div id = "scroll5"></div>
+
           <div class="col-lg-4 sidebar-widgets">
+
             <Index_Finedust/>
             <Index_Radar/>
             <Index_Disease/>
@@ -26,12 +29,12 @@
         </div>
       </div>
      </section>
-        <button @click="fnMove('1')">div1로 이동</button>
+        <!-- <button @click="fnMove('1')">div1로 이동</button>
         <button @click="fnMove('2')">div2로 이동</button>
         <button @click="fnMove('3')">div3로 이동</button>
         <div id="div1" class="move">div1</div>
         <div id="div2" class="move">div2</div>
-        <div id="div3" class="move">div3</div>
+        <div id="div3" class="move">div3</div> -->
   </div>
 </template>
 <script src="https://code.jquery.com/jquery-3.2.1.js" 
@@ -67,12 +70,12 @@ export default {
     Index_Disease,
     Index_Plant,
   },
-  methods: {
-    fnMove(seq){
-        var offset = $("#div" + seq).offset();
-        $('html, body').animate({scrollTop : offset.top}, 400);
-    }
-  },
+  // methods: {
+  //   fnMove(seq){
+  //       var offset = $("#div" + seq).offset();
+  //       $('html, body').animate({scrollTop : offset.top}, 400);
+  //   }
+  // },
   updated() {
     this.$nextTick(function(){
 

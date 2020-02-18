@@ -13,7 +13,7 @@
           <!-- <router-link to = "/"><a class="navbar-brand logo_h"><img class="logoimg" src="img/logo.png" alt=""></a></router-link> -->
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
+            <span class="icon-bar"></span> 
           </button>
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
@@ -32,13 +32,13 @@
                 <ul class="dropdown-menu">
                   <li class="nav-item"><a class="nav-link" href="blog-details.html">Blog Details</a></li>
                 </ul>
-              </li> -->
-              <li class="nav-item"><router-link to = "/board"><a class="nav-link">Board</a></router-link></li>            
+              </li>
+              <li class="nav-item"><router-link to = "/board"><a class="nav-link">Board</a></router-link></li>             -->
               <!-- <li class="nav-item"><a class ="nav-link"> | </a></li> -->
 
             </ul>
             <ul v-if="isAuthenticated" class="nav navbar-nav navbar-right navbar-social" style="width : 220px" >
-              <li class ="nav-item"><a class="nav-link" style="font-size:large">{{userName}}</a></li>
+            <li class ="nav-item"><router-link to ="mypage"><a class="nav-link" style="font-size:large">{{userName}}</a></router-link></li>
               <li class="nav-item"><a class="nav-link" style="font-size:large" @click.prevent="logout">로그아웃</a></li>
             </ul>
              <ul v-else class="nav navbar-nav navbar-right navbar-social" style="width : 220px">
@@ -49,7 +49,7 @@
         </div>
       </nav>
     </div>
-  </header>
+  </header> 
     </div>
     <router-view/>
     <!-- footer -->

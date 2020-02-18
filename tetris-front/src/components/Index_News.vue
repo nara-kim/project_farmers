@@ -22,6 +22,7 @@
                                     <h4 class="card-title">{{news.title}}</h4>
                                     <!-- <p class="card-text">{{news.discription}}</p> -->
                                     <!-- <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a> -->
+
                                 </div>
                             </div>
                         </div>
@@ -53,19 +54,25 @@
                                         </li>
                                     </ul> -->
                                 </div>
+
                             </div>
                         </div>
+
                     </div>
+
                 </div>
-                
             </div>
-            
+            <div id="scroll3"></div>
+
 
         </div>
+        
     </div>
+    
+
+
 </section>
 
-<!-- </div> -->
 <!-- ==================  2-carousel bootstrap.// ==================  -->   
      
   

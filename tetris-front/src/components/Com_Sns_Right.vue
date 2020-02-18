@@ -28,7 +28,7 @@
             <textarea class="input_text" type="text" v-model="title" placeholder="무슨생각을 하고 계시나요?" style="background-color:rgba(255, 255, 255, 0.973); "></textarea>    
             <div class="filebox preview-image">
                 <hr>
-                <input type="file" id="input-file" ref="file" class="upload-hidden" v-on:change="handleFileUpload()">
+                <input type="file" id="input-file" ref="file" class="upload-hidden"  v-on:change="handleFileUpload()">
                 <!-- <img type = "file" src="img/camera.png" style="width:20%;"  for="input-file"> -->
                 <label for="input-file" style="border:none; display:inline-block; width:30px;" img="img/camera.png">               
                  <img type = "file" src="img/camera.png" style="width:100%; float:right;" >
@@ -54,15 +54,16 @@
 import axios from 'axios';
 export default {
     name: 'Com_Sns_Right',
-  props: {
-    msg: String
-  },
-  data(){
-    return{
-        file:'',
-        title:'',
-    }
-  },
+    props: {
+        msg: String
+    },
+    data(){
+        return{
+            file:'',
+            title:'',
+
+        }
+    },
   methods: {
     CreateSns(){
         let formData = new FormData();
@@ -81,9 +82,13 @@ export default {
             
 
             this.datalist = res.data
-            this.file = ''
+
+            var imgTarget = $('.preview-image .upload-hidden');
+            var parent = $(imgTarget).parent();
+            parent.children('.upload-display').remove();
+
             this.title = ''
-            this.$router.push('/sns');
+            this.$store.dispatch('getSnsAction')
         })
         .catch(function(){
           console.log('FAILURE!!');

@@ -54,22 +54,17 @@
             <table>
                 <thead>
                     <tr>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Job Title</th>
+                        <th>제목</th>
+                        <th>내용</th>
+                        <th>인원</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>James</td>
-                        <td>Matman</td>
-                        <td>Chief Sandwich Eater</td>
-                    </tr>
-                    <tr>
-                        <td>The</td>
-                        <td>Tick</td>
-                        <td>Crimefighter Sorta</td>
-                    </tr>
+					<tr v-for="help in help_list" :key="help.id">
+						<router-link to="/detail_board"><td>{{help.title}}</td></router-link>
+						<td>{{help.content}}</td>
+						<td>{{help.people}}</td>
+					</tr>
                 </tbody>
             </table>
         </div>
@@ -79,7 +74,30 @@
 
 </div>
 </template>
-
+<script>
+import axios from 'axios'
+export default {
+	data(){
+		return {
+			help_list: [],
+		}
+	},
+	methods: {
+		gethelp(){
+			axios
+				.get('http://127.0.0.1:8000/helppage/gethelp/')
+				.then(res => {
+					console.log('gethelp')
+					this.help_list = res.data;
+				})
+				.catch(err => console.log(err))
+		}
+	},
+	mounted(){
+		this.gethelp()
+	}
+}
+</script>
 <style scoped>
 .boardtable{
 	font-family: 'Jua', sans-serif;

@@ -2,12 +2,17 @@
 
         <div class="widget-wrap" style="margin-top:40px; font-family: 'Nanum Gothic', sans-serif; font-weight:bold;">
           레이더<hr>
+
             <!-- <div class="single-sidebar-widget newsletter-widget"> -->
-               
-                <img src="img/rainrader.gif" alt="" style="width:100%;">
+                <div id = "scroll2">
+                <img src="img/rainrader.gif" alt="" style="width:350px;">
                 
+                <div id = "scroll4">
+                  
+                </div>
             <!-- </div> -->
         </div>
+</div>
 </template>
 
 <script>

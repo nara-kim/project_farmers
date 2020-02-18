@@ -8,6 +8,8 @@ import Board from '../views/Board.vue'
 import Detail_Sns from '../views/Detail_Sns.vue'
 import Sns_Write from '../views/Sns_Write.vue'
 import View_Board_Write from '../views/View_Board_Write.vue'
+import Mypage from '../views/Mypage.vue'
+import Detail_Board from '../views/Detail_Board.vue'
 
 Vue.use(VueRouter)
 
@@ -52,6 +54,17 @@ const routes = [
     name:'view_board_write',
     component: View_Board_Write
   },
+  {
+    path : '/mypage',
+    name:'mypage',
+    component: Mypage
+  },
+  {
+    path : '/detail_board',
+    name:'detail_board',
+    component: Detail_Board
+  },
+
 ]
 
 const router = new VueRouter({

@@ -18,8 +18,8 @@
               </div>
               <div class="media-body">
                   <p class="m-0">{{sns.title}}</p>
-                  <small><span><i class="icon ion-md-pin"></i> Nairobi, Kenya</span></small>
-                  <small><span><i class="icon ion-md-time"></i> 10 hours ago</span></small>
+                  <!-- <small><span><i class="icon ion-md-pin"></i> Nairobi, Kenya</span></small>
+                  <small><span><i class="icon ion-md-time"></i> 10 hours ago</span></small> -->
               </div>
             </div><!--/ media -->
           </div><!--/ cardbox-heading -->
@@ -27,7 +27,8 @@
         <div class="cardbox-item">
             <img class="img-fluid" v-bind:src="`http://127.0.0.1:8000${sns.image}/`" alt="Image" style="width:100%;">
         </div><!--/ cardbox-item -->
-        <div class="cardbox-base">
+        <hr>
+        <!-- <div class="cardbox-base">
             <ul class="float-right">
                 <li><a><i class="fa fa-comments"></i></a></li>
                 <li><a><em class="mr-5">12</em></a></li>
@@ -40,7 +41,8 @@
                 <li><a href="#"><img src="http://www.themashabrand.com/templates/bootsnipp/post/assets/img/users/2.jpg" class="img-fluid rounded-circle" alt="User"></a></li>
                 <li><a><span>242 Likes</span></a></li>
             </ul>            
-        </div><!--/ cardbox-base -->
+        </div> -->
+        <!--/ cardbox-base -->
         <div class="cardbox-comments">
             <span class="comment-avatar float-left">
                 <a href=""><img class="rounded-circle" src="http://www.themashabrand.com/templates/bootsnipp/post/assets/img/users/6.jpg" alt="..."></a>                            
@@ -53,7 +55,7 @@
         </div><!--/ cardbox-like -->          
         <div>
             <!-- 댓글 -->
-            <div class="comment" v-for='comment in comments' :key='comment.id'>
+            <div class="comment" v-for='comment in comments' :key='comment.id' >
                 <h5 class="h5comment">{{comment.content}}
                   <button class="btn btn-danger" v-if="comment.create_user === loggedInUser.user_id" @click.prevent="commentDelete(comment)" style="height:25px; width:auto;">
                     <img class="deletebutton" src="img/delete.png">
@@ -361,7 +363,7 @@ text-align: center;
 .search input[type="text"] {
  background-color: #fff;
  line-height: 10px;
- padding: 15px 60px 20px 10px;
+ padding: 15px 60px 20px 50px;
  border: none;
  border-radius: 4px;
  width: 100%;

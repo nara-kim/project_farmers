@@ -49,60 +49,63 @@
             </span>
           <div class="search">
               <input placeholder="Write a comment" type="text">
-              <!-- <button><i class="fa fa-camera"></i></button> -->
-              <button><img class="imgbutton" src="img/send.png"></button>
+              <button><i class="fa fa-camera"></i></button>
           </div><!--/. Search -->
         </div><!--/ cardbox-like -->           
     </div><!--/ cardbox -->
 
-    <Sns_List v-for="sns in sns_list" :key="sns.id" :sns='sns'/>
+    <Sns_List v-for="sns in snsgetters" :key="sns.id" :sns='sns'/>
     
 </div>
 </template>
 
 <script>
-import axios from 'axios'
+// import axios from 'axios'
 import Sns_List from './Sns_List.vue'
+import { mapGetters } from "vuex";
 
 export default {
   name: 'Com_Sns_Left',
   data(){
     return {
-      sns_list: [],
+      // sns_list: [],
     }
   },
   components:{
     Sns_List,
   },
 
-  // watch:{
-  //   sns_list:{
-  //     handler(){
-  //       this.getSns();
-  //     }
-  //   }
-  // },
+  watch:{
+    sns_list:{
+      handler(){
+        this.getSns();
+      }
+    }
+  },
   methods: {
-    getSns(){
-      axios
-        .get('http://127.0.0.1:8000/sns/todo/snslist/')
-        .then(res => {
-          console.log('서옹???')
-          // const {sns_set} = res.data;
-          // this.sns_list = sns_set;
+    // getSns(){
+    //   axios
+    //     .get('http://127.0.0.1:8000/sns/todo/snslist/')
+    //     .then(res => {
+    //       console.log('서옹???')
 
-          this.sns_list = res.data;
-          console.log('성공한듯??!!했냐냐냐냐!!!ㄴ???')
-        })
-        .catch(err => console.log(err))
-    },
+
+    //       this.sns_list = res.data;
+    //       console.log('성공한듯??!!했냐냐냐냐!!!ㄴ???')
+    //     })
+    //     .catch(err => console.log(err))
+    // },
 
   },
   // updated(){
   //   this.getSns()
   // },
+  computed:{
+    ...mapGetters(['snsgetters'])
+  },
   mounted(){
-    this.getSns();
+    // this.getSns();
+    this.$store.dispatch('getSnsAction')
   }
 
 }
@@ -348,9 +351,6 @@ text-align: center;
  line-height: 30px;
  display: block;
 }
-.imgbutton{
-  width: 8%; 
-}
 
 
 /* ------------------------------- */
@@ -366,5 +366,4 @@ text-align: center;
  font-size: 16px;
  color: #8d8d8d;
 }
-
 </style>

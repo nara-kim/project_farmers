@@ -2,10 +2,13 @@
   <!-- <div class="col-lg-4 sidebar-widgets"> -->
     <div class ="finedust" style=" font-family: 'Jua', sans-serif;">
     미세먼지 <hr>
+    <div id="scroll6">
+
     <div v-for="dust of dustlist" v-bind:key="dust.id">
       <div class="widget-wrap">
         <!-- <div class="single-sidebar-widget post-category-widget"> -->
           <!-- <h4 class="single-sidebar-widget__title" style="letter-spacing:3px">미세먼지</h4> -->
+
           <div>
             <div>
                 <div>
@@ -63,12 +66,15 @@
               </div>
             </div>
           </div>   
-
         <!-- </div> -->
+        
       </div>
+
     </div>
+
   </div>
-    
+  
+    </div>
 
 </template>
 
