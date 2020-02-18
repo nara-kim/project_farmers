@@ -15,41 +15,43 @@
                 </div> -->
                 <!-- </article>
             </aside> -->
-    <aside class="col-sm-12">
-    <article class="card-body p-5">
-        <h3 class="title mb-3">일손을 구합니다 도와주세요ㅠㅠ</h3>
+            
+            <aside class="col-sm-10">
+                <article class="card-body p-5">
+                    <h3 class="title mb-3">일손을 구합니다 도와주세요ㅠㅠ</h3>
 
-    <p class="price-detail-wrap"> 
-        <span class="price h3 text-warning"> 
-            <span class="currency">일당!!</span><span class="num">시급 10,000</span>
-        </span> 
-        <span>원</span> 
-    </p> <!-- price-detail-wrap .// -->
-    <dl class="item-property">
-    <dt>내용</dt>
-    <dd><p>저희 승규네 집은 소도 키우고요 음메~ 유자나무는 아쉽게도 없어요ㅜㅜ 유자나무 사주실래요?ㅎㅎ
-        승규가 일하기 싫다고 도망가서 일할 사람이 필요하답니다 흑흑</p></dd>
-    </dl>
-    <dl class="param param-feature">
-    <dt>지역</dt>
-    <dd>전라남도 고흥군</dd>
-    </dl>  <!-- item-property-hor .// -->
-    <dl class="param param-feature">
-    <dt>날짜</dt>
-    <dd>언제부터 언제</dd>
-    </dl>  <!-- item-property-hor .// -->
-    <dl class="param param-feature">
-    <dt>인원</dt>
-    <dd>2</dd>
-    </dl>  <!-- item-property-hor .// -->
+                <p class="price-detail-wrap"> 
+                    <span class="price h3 text-warning"> 
+                        <span class="currency">일당!!</span><span class="num">시급 10,000</span>
+                    </span> 
+                    <span>원</span> 
+                </p> <!-- price-detail-wrap .// -->
+                <dl class="item-property">
+                <dt>내용</dt>
+                <dd><p>저희 승규네 집은 소도 키우고요 음메~ 유자나무는 아쉽게도 없어요ㅜㅜ 유자나무 사주실래요?ㅎㅎ
+                    승규가 일하기 싫다고 도망가서 일할 사람이 필요하답니다 흑흑</p></dd>
+                </dl>
+                <dl class="param param-feature">
+                <dt>지역</dt>
+                <dd>전라남도 고흥군</dd>
+                </dl>  <!-- item-property-hor .// -->
+                <dl class="param param-feature">
+                <dt>날짜</dt>
+                <dd>언제부터 언제</dd>
+                </dl>  <!-- item-property-hor .// -->
+                <dl class="param param-feature">
+                <dt>인원</dt>
+                <dd>2</dd>
+                </dl>  <!-- item-property-hor .// -->
 
-    <hr>
+                <hr>
 
-    <a href="#" class="btn btn-lg btn-primary text-uppercase"> 수정 </a>
-    <a href="#" class="btn btn-lg btn-outline-primary text-uppercase"> 삭제 </a>
-    </article> <!-- card-body.// -->
-    </aside> <!-- col.// -->
-    </div> <!-- row.// -->
+                <a href="#" class="btn btn-lg btn-primary text-uppercase"> 수정 </a>
+                <a href="#" class="btn btn-lg btn-outline-primary text-uppercase"> 삭제 </a>
+                </article> <!-- card-body.// -->
+            </aside> <!-- col.// -->
+           
+        </div> <!-- row.// -->
     </div> <!-- card.// -->
 
 
