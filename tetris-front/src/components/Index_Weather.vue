@@ -1,5 +1,6 @@
 <template>
     <div class ="container">
+            날씨
         <div class ="row" style="border:1px solid #EAEEF3;">
             <div class="col-12" style="border-bottom:1px solid #EAEEF3;">
                 <div class ="col-12write" style="padding-left: 15px;">
