@@ -1,5 +1,5 @@
 <template>
-    <h1>글쓰기 페이지</h1>
+    <h3>글쓰기 페이지</h3>
 </template>
 
 <script>
